@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geek in a Cape | Trusted Technology Advisor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="assets/Geek in a Cape.png">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+  :root {
+    --navy: #1B3A5C;
+    --navy-dark: #122840;
+    --navy-light: #2a5080;
+    --green: #2E7D32;
+    --green-light: #4CAF50;
+    --green-pale: #e8f5e9;
+    --cream: #FAFAF7;
+    --warm-white: #FFFFFF;
+    --text-dark: #1a1a2e;
+    --text-mid: #444455;
+    --text-light: #777788;
+    --border: #e0e0ec;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 400;
+    color: var(--text-dark);
+    background: var(--cream);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo img { height: 44px; width: auto; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-mid);
+    font-size: 0.9rem; font-weight: 500; letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--green); }
+  .nav-cta {
+    background: var(--green); color: white !important;
+    padding: 0.5rem 1.2rem; border-radius: 4px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--green-light) !important; color: white !important; }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding-top: 68px;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      radial-gradient(ellipse at 70% 50%, rgba(46,125,50,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(255,255,255,0.04) 0%, transparent 50%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1100px; margin: 0 auto; padding: 5rem 2rem;
+    display: grid; grid-template-columns: 1fr 380px; gap: 5rem; align-items: center;
+  }
+  .hero-text {}
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.8rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--green-light); margin-bottom: 1.5rem;
+    padding: 0.35rem 0.9rem; border: 1px solid rgba(76,175,80,0.4); border-radius: 3px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.8rem);
+    font-weight: 700; line-height: 1.2;
+    color: white; margin-bottom: 1.5rem;
+  }
+  .hero-title em { color: var(--green-light); font-style: normal; }
+  .hero-sub {
+    font-size: 1.15rem; color: rgba(255,255,255,0.75);
+    max-width: 520px; margin-bottom: 2.5rem; line-height: 1.8;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--green); color: white;
+    padding: 0.85rem 2rem; border-radius: 4px;
+    text-decoration: none; font-weight: 600; font-size: 0.95rem;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--green-light); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: white;
+    padding: 0.85rem 2rem; border-radius: 4px; border: 1px solid rgba(255,255,255,0.4);
+    text-decoration: none; font-weight: 500; font-size: 0.95rem;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-block;
+  }
+  .btn-secondary:hover { border-color: white; background: rgba(255,255,255,0.08); }
+  .hero-photo {
+    display: flex; justify-content: center; align-items: center;
+  }
+  .hero-photo-frame {
+    width: 300px; height: 300px; border-radius: 50%;
+    overflow: hidden; border: 4px solid rgba(76,175,80,0.5);
+    box-shadow: 0 0 0 8px rgba(76,175,80,0.1), 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-top: 3rem; padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .stat-item {}
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--green-light); font-weight: 700; line-height: 1; }
+  .stat-label { font-size: 0.8rem; color: rgba(255,255,255,0.55); letter-spacing: 0.05em; margin-top: 0.25rem; }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--green); margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 700; color: var(--navy); line-height: 1.25;
+    margin-bottom: 1.25rem;
+  }
+  .section-intro {
+    font-size: 1.1rem; color: var(--text-mid); max-width: 640px; line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+
+  /* ── WHAT I DO ── */
+  #services { background: white; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .service-card {
+    padding: 2rem; border: 1px solid var(--border); border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    position: relative;
+  }
+  .service-card:hover {
+    border-color: var(--green); box-shadow: 0 8px 30px rgba(46,125,50,0.1);
+    transform: translateY(-2px);
+  }
+  .service-icon {
+    width: 44px; height: 44px; background: var(--green-pale);
+    border-radius: 8px; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem; font-size: 1.3rem;
+  }
+  .service-card h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.15rem;
+    color: var(--navy); margin-bottom: 0.6rem; font-weight: 600;
+  }
+  .service-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
+
+  /* ── RETAINER TIERS ── */
+  #pricing { background: white; }
+  .tiers-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .tier-card {
+    background: white; border: 1px solid var(--border); border-radius: 10px;
+    padding: 2rem; position: relative; transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .tier-card:hover { box-shadow: 0 10px 40px rgba(27,58,92,0.12); transform: translateY(-2px); }
+  .tier-card.featured {
+    border-color: var(--green); border-width: 2px;
+    box-shadow: 0 8px 30px rgba(46,125,50,0.15);
+  }
+  .tier-badge {
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--green); color: white;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.3rem 1rem; border-radius: 20px;
+  }
+  .tier-name {
+    font-family: 'Playfair Display', serif; font-size: 1.3rem;
+    color: var(--navy); font-weight: 600; margin-bottom: 0.5rem;
+  }
+  .tier-price {
+    font-size: 2rem; font-weight: 700; color: var(--green); line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .tier-price span { font-size: 1rem; font-weight: 400; color: var(--text-light); }
+  .tier-desc { font-size: 0.88rem; color: var(--text-mid); margin: 1rem 0; line-height: 1.7; }
+  .tier-features { list-style: none; margin: 1.25rem 0; }
+  .tier-features li {
+    font-size: 0.88rem; color: var(--text-mid); padding: 0.4rem 0;
+    border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 0.6rem;
+  }
+  .tier-features li:last-child { border-bottom: none; }
+  .tier-features li::before { content: "✓"; color: var(--green); font-weight: 700; flex-shrink: 0; margin-top: 0.1rem; }
+  .tier-cta {
+    display: block; text-align: center; padding: 0.75rem;
+    background: var(--navy); color: white; border-radius: 5px;
+    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    margin-top: 1.5rem; transition: background 0.2s;
+  }
+  .tier-cta:hover { background: var(--navy-light); }
+  .tier-card.featured .tier-cta { background: var(--green); }
+  .tier-card.featured .tier-cta:hover { background: var(--green-light); }
+
+  .clarity-banner {
+    margin-top: 2rem; background: var(--navy); border-radius: 10px;
+    padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between;
+    gap: 2rem; flex-wrap: wrap;
+  }
+  .clarity-banner h3 {
+    font-family: 'Playfair Display', serif; color: white; font-size: 1.3rem; margin-bottom: 0.4rem;
+  }
+  .clarity-banner p { color: rgba(255,255,255,0.7); font-size: 0.95rem; max-width: 500px; }
+  .clarity-price { color: var(--green-light); font-size: 1.8rem; font-weight: 700; white-space: nowrap; }
+
+  /* ── WHO I HELP ── */
+  #who { background: white; }
+  .who-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.25rem;
+    margin-top: 3rem;
+  }
+  .who-card {
+    padding: 1.75rem 1.5rem; border: 1px solid var(--border); border-radius: 8px;
+    text-align: center; transition: border-color 0.2s, transform 0.2s;
+  }
+  .who-card:hover { border-color: var(--navy); transform: translateY(-2px); }
+  .who-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .who-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
+  .who-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
+
+  /* ── HOW IT WORKS ── */
+  #how { background: var(--cream); }
+  #how .section-title { color: var(--navy); }
+  #how .section-intro { color: var(--text-mid); }
+  #how .section-label { color: var(--green); }
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+    margin-top: 3rem; position: relative;
+  }
+  .step {
+    position: relative; padding: 2rem;
+    background: white; border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .step-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 700; color: rgba(46,125,50,0.2);
+    line-height: 1; margin-bottom: 1rem;
+  }
+  .step h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: 0.6rem; font-weight: 600; }
+  .step p { color: var(--text-mid); font-size: 0.9rem; line-height: 1.7; }
+
+  /* ── CASE STUDIES ── */
+  #work { background: var(--cream); }
+  .cases-grid { display: grid; gap: 1.5rem; margin-top: 3rem; }
+  .case-card {
+    background: white; border: 1px solid var(--border); border-radius: 10px;
+    padding: 2rem 2.5rem; display: grid; grid-template-columns: 1fr 2fr; gap: 2.5rem;
+    align-items: start; transition: box-shadow 0.2s;
+  }
+  .case-card:hover { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+  .case-meta {}
+  .case-tag {
+    display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--green);
+    background: var(--green-pale); padding: 0.3rem 0.8rem; border-radius: 3px;
+    margin-bottom: 1rem;
+  }
+  .case-meta h3 {
+    font-family: 'Playfair Display', serif; font-size: 1.35rem;
+    color: var(--navy); line-height: 1.3; font-weight: 700;
+  }
+  .case-body {}
+  .case-challenge { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-light); margin-bottom: 0.5rem; }
+  .case-body p { font-size: 0.95rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1rem; }
+  .case-outcome {
+    display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;
+  }
+  .outcome-pill {
+    font-size: 0.82rem; font-weight: 600; color: var(--navy);
+    background: var(--green-pale); padding: 0.3rem 0.9rem; border-radius: 20px;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: white; }
+  .testimonials-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .testimonial {
+    padding: 2rem; background: var(--cream); border-radius: 8px;
+    border-left: 3px solid var(--green); position: relative;
+  }
+  .testimonial blockquote {
+    font-family: 'Playfair Display', serif; font-size: 1.05rem;
+    color: var(--navy); line-height: 1.7; font-style: italic; margin-bottom: 1.25rem;
+  }
+  .testimonial blockquote::before { content: "\201C"; font-size: 2.5rem; color: var(--green); line-height: 0; vertical-align: -0.5rem; margin-right: 0.2rem; }
+  .testimonial-author { font-size: 0.85rem; font-weight: 600; color: var(--text-light); }
+
+  /* ── ABOUT ── */
+  #about { background: var(--cream); }
+  .about-grid {
+    display: grid; grid-template-columns: 320px 1fr; gap: 5rem; align-items: center;
+  }
+  .about-photo {
+    width: 280px; height: 280px; border-radius: 50%; overflow: hidden;
+    border: 3px solid var(--green); box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+    margin: 0 auto;
+  }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  .about-text {}
+  .about-text p { font-size: 1rem; color: var(--text-mid); line-height: 1.9; margin-bottom: 1rem; }
+  .about-credentials {
+    display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem;
+  }
+  .credential {
+    font-size: 0.8rem; font-weight: 600; color: var(--navy);
+    border: 1px solid var(--border); padding: 0.35rem 0.9rem; border-radius: 20px;
+    background: white;
+  }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--navy); }
+  #contact .section-title { color: white; }
+  #contact .section-intro { color: rgba(255,255,255,0.7); }
+  #contact .section-label { color: var(--green-light); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;
+    margin-top: 3rem;
+  }
+  .contact-info {}
+  .contact-info h3 {
+    font-family: 'Playfair Display', serif; color: white; font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .contact-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    margin-bottom: 1rem; color: rgba(255,255,255,0.75); font-size: 0.95rem;
+  }
+  .contact-item a { color: var(--green-light); text-decoration: none; }
+  .contact-item a:hover { text-decoration: underline; }
+  .contact-form-area {
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px; padding: 2rem;
+  }
+  .contact-form-area h3 {
+    font-family: 'Playfair Display', serif; color: white; font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label { display: block; font-size: 0.82rem; font-weight: 600; color: rgba(255,255,255,0.6); margin-bottom: 0.4rem; letter-spacing: 0.05em; text-transform: uppercase; }
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 5px; padding: 0.75rem 1rem; color: white; font-family: inherit; font-size: 0.95rem;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    outline: none; border-color: var(--green-light);
+  }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-group select option { background: var(--navy); }
+  .form-submit {
+    width: 100%; padding: 0.85rem; background: var(--green); color: white;
+    border: none; border-radius: 5px; font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; transition: background 0.2s; font-family: inherit;
+  }
+  .form-submit:hover { background: var(--green-light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy-dark); padding: 1.5rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  footer p { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+  .footer-logo { display: flex; align-items: center; gap: 10px; }
+  .footer-logo img { height: 32px; opacity: 0.7; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; text-align: center; }
+    .hero-photo { order: -1; }
+    .hero-photo-frame { width: 220px; height: 220px; }
+    .hero-sub { margin: 0 auto 2.5rem; }
+    .hero-actions { justify-content: center; }
+    .hero-stats { justify-content: center; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .tiers-grid { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+    .who-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps-grid { grid-template-columns: 1fr; }
+    .case-card { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; text-align: center; }
+    .about-credentials { justify-content: center; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr; }
+    section { padding: 3.5rem 1.25rem; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+  .hero-title { animation: fadeUp 0.6s ease 0.1s both; }
+  .hero-sub { animation: fadeUp 0.6s ease 0.2s both; }
+  .hero-actions { animation: fadeUp 0.6s ease 0.3s both; }
+  .hero-stats { animation: fadeUp 0.6s ease 0.4s both; }
+  .hero-photo { animation: fadeUp 0.8s ease 0.2s both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#home">
+    <img src="assets/Geek in a Cape.png" alt="Geek in a Cape logo" style="height:44px;width:auto;">
+    </a>
+  <ul class="nav-links">
+    <li><a href="#services">What I do</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#who">Who I help</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#pricing">Working with me</a></li>
+    <li><a href="#work">Examples</a></li>
+    <li><a href="#contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="hero-eyebrow">Trusted Technology Advisor</span>
+      <h1 class="hero-title">Your tech superhero<br><em>with the human touch</em></h1>
+      <p class="hero-sub">I help small businesses, charities, and individuals make better technology decisions, <b>calmly, clearly, and without jargon</b>. No hard sell. Just honest advice from someone who gets it.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Book a free chat</a>
+        <a href="#how" class="btn-secondary">See how it works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">25+</div>
+          <div class="stat-label">Years in practice</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Continents</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">&infin;</div>
+          <div class="stat-label">Patience</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="hero-photo-frame">
+        <img src="assets/Headshot.jpg" alt="Toby Carson">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT I DO -->
+<section id="services">
+  <div class="section-inner">
+    <p class="section-label">What I do</p>
+    <h2 class="section-title">Technology advice you can actually trust</h2>
+    <p class="section-intro">Most small organisations don't need an IT department. They need one person they can call, someone <b>calm, honest, and technically competent</b> before they make an expensive decision.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🧭</div>
+        <h3>Technology Advisory</h3>
+        <p>Honest, impartial guidance on technology decisions. Before you sign a contract, buy a system, or change a process, talk to me first. I have nothing to sell you except myself.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤖</div>
+        <h3>AI Guidance &amp; Policy</h3>
+        <p>Should your organisation be using AI? Which tools? Is it safe? I help you answer these questions practically and honestly, drawing on Oxford Said Business School AI programme frameworks.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">⚙️</div>
+        <h3>Workflow &amp; Systems</h3>
+        <p>Building clever, bespoke solutions using the tools you already own. Turning administrative chaos into clean, functional systems, without expensive software.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🤝</div>
+        <h3>1:1 Support &amp; Mentoring</h3>
+        <p>Patient, one-to-one guidance for individuals navigating digital overwhelm. Technology explained clearly, at your pace, without patronising.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🔍</div>
+        <h3>Technology Review</h3>
+        <p>A full audit of your organisation's technology setup. What you have, what you're paying for, what's working, and what to do next <b>in plain English</b>.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📋</div>
+        <h3>Training &amp; Digital Literacy</h3>
+        <p>Staff sessions and workshops helping teams get more from the technology they already use. Practical, accessible, and tailored to your context.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div style="display:flex;align-items:center;justify-content:center;margin:0 auto;width:280px;height:280px;">
+          <img src="assets/Geek in a Cape.png" alt="Geek in a Cape" style="width:240px;height:240px;object-fit:contain;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.12));">
+        </div>
+      </div>
+      <div class="about-text">
+        <p class="section-label">About</p>
+        <h2 class="section-title">The person behind the cape</h2>
+        <p>For twenty-five years, across schools on two continents, I've been the person people come to when something is complicated and they need it to make sense. Sometimes that's a technology problem. Sometimes it's a human one. Usually it's both at once.</p>
+        <p>Colleagues and clients have consistently described the same quality across very different situations: a<b> calm, non-anxious presence</b> that helps people think more clearly when things feel complicated. I don't pretend problems aren't real... I just cut through the anxiety. That steadiness, I recognised, was as highly prized as any technical skill.</p>
+        <p>I founded Geek in a Cape in 2025 to bring that same combination: <b>technical competence, genuine patience, and pastoral instinct</b> to organisations and individuals who need honest advice they can trust.</p>
+        <p>I'm currently completing the Artificial Intelligence Programme at Oxford University, Saïd Business School, to augment and support how I help clients navigate AI tools and policy with confidence rather than anxiety.</p>
+        <div class="about-credentials">
+          <span class="credential">Oxford Said AI Programme</span>
+          <span class="credential">MA Leadership (Distinction)</span>
+          <span class="credential">25 years in practice</span>
+          <span class="credential">Published app developer</span>
+          <span class="credential">BBC radio contributor</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO I HELP -->
+<section id="who">
+  <div class="section-inner">
+    <p class="section-label">Who I help</p>
+    <h2 class="section-title">Organisations and people who deserve better</h2>
+    <p class="section-intro">I work best with clients who are doing great work but feel overwhelmed by technology and who want an advisor they can trust, not a salesperson.</p>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-icon">💼</div>
+        <h3>Sole Traders &amp; Professionals</h3>
+        <p>Independent professionals who want technology to work for them without the complexity or cost.</p>
+      </div>
+            <div class="who-card">
+        <div class="who-icon">🏛️</div>
+        <h3>Small Charities</h3>
+        <p>Real needs, limited budgets, and no IT department. Technology decisions that matter, made carefully.</p>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">🌿</div>
+        <h3>Non-Profits &amp; Social Enterprises</h3>
+        <p>Organisations doing meaningful work with limited resource, where every technology decision needs to count.</p>
+      </div>
+<div class="who-card">
+        <div class="who-icon">🏠</div>
+        <h3>Individuals &amp; Home Users</h3>
+        <p>Anyone at home who needs patient, friendly help with technology, <b>no jargon, no judgment, and no rush</b>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <p class="section-label">How it works</p>
+    <h2 class="section-title">Simple from the start</h2>
+    <p class="section-intro">No jargon, no lengthy proposals, no pressure. Just a conversation... and then, if it makes sense, a relationship that makes technology easier for you.</p>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-number">01</div>
+        <h3>A free conversation</h3>
+        <p>Tell me what you're struggling with, what decisions are coming up, or simply what technology feels like right now. I'll listen, ask a few questions, and tell you honestly whether I can help.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <h3>A clarity session or technology review</h3>
+        <p>For most clients, the next step is a paid 90-minute session or a full technology review. You'll get a clear written summary and specific recommendations, useful whether or not we work together further.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <h3>Ongoing support, if it's right</h3>
+        <p>Many clients choose a monthly retainer, a fixed amount that gives them access to honest advice whenever they need it. No surprises, no hourly clock-watching, just someone they can call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING / RETAINERS -->
+<section id="pricing">
+  <div class="section-inner">
+    <p class="section-label">Working with me</p>
+    <h2 class="section-title">Clear, transparent pricing</h2>
+    <p class="section-intro">Most clients start with a free conversation or a one-off clarity session, then move to a monthly retainer when they realise the value of having someone they trust on call.</p>
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <div class="tier-name">Friend</div>
+        <div class="tier-price">£200 <span>/ month</span></div>
+        <p class="tier-desc"><i>You're generally confident but need a friend to run thoughts and concerns past.</i></p>
+        <ul class="tier-features">
+          <li>Up to 2 hours contact time</li>
+          <li>48-hour response time</li>
+          <li>Email &amp; message support</li>
+          <li>Monthly check-in available</li>
+        </ul>
+        <a href="#contact" class="tier-cta">Get started</a>
+      </div>
+      <div class="tier-card featured">
+        <div class="tier-badge">Most popular</div>
+        <div class="tier-name">Neighbour</div>
+        <div class="tier-price">£300 <span>/ month</span></div>
+        <p class="tier-desc"><i>You value a neighbour who understands your day-to-day and is engaged in your success.</i></p>
+        <ul class="tier-features">
+          <li>Up to 4 hours contact time</li>
+          <li>24-hour response time</li>
+          <li>Email, phone &amp; video support</li>
+          <li>Quarterly technology review</li>
+          <li>Priority access during decisions</li>
+        </ul>
+        <a href="#contact" class="tier-cta">Get started</a>
+      </div>
+      <div class="tier-card">
+        <div class="tier-name">Family</div>
+        <div class="tier-price">£500 <span>/ month</span></div>
+        <p class="tier-desc"><i>You expect more; someone who knows your world well and is invested in its flourishing.</i></p>
+        <ul class="tier-features">
+          <li>Up to 8 hours contact time</li>
+          <li>Priority response</li>
+          <li>All contact methods</li>
+          <li>Quarterly strategy review call</li>
+          <li>Staff training sessions included</li>
+        </ul>
+        <a href="#contact" class="tier-cta">Get started</a>
+      </div>
+    </div>
+    <p style="font-size:0.85rem; color:var(--text-light); margin-top:1rem; text-align:center;">All prices are indicative. <a href="#contact" style="color:var(--green);">Get in touch to discuss custom pricing.</a></p>
+
+    <div class="clarity-banner">
+      <div>
+        <h3>Not ready for a retainer? Start with a Clarity Session.</h3>
+        <p>90 minutes. One specific question or decision. Written summary included. No commitment required and a natural way to see whether working together makes sense.<br><i>* Price refunded in full if you move to a 6-month Neighbour or Family retainer.</i></p>
+      </div>
+      <div>
+        <div class="clarity-price">£100</div>
+        <a href="#contact" class="btn-primary" style="margin-top:0.75rem; display:block; text-align:center;">Book now</a>
+      </div>
+    </div>
+    <div style="background:white; border:1px solid var(--border); border-radius:10px; padding:1.75rem 2.5rem; margin-top:1.5rem; display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap;">
+      <div>
+        <h3 style="font-family:'Playfair Display', serif; color:var(--navy); font-size:1.1rem; margin-bottom:0.4rem;">Home &amp; domestic support?</h3>
+        <p style="color:var(--text-mid); font-size:0.92rem; max-width:500px;">Do get in touch to discuss home &amp; domestic prices</p>
+      </div>
+      <a href="#contact" class="btn-primary" style="white-space:nowrap;">Home &amp; Domestic</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section id="work">
+  <div class="section-inner">
+    <p class="section-label">Recent Case Studies</p>
+    <h2 class="section-title">Recent case studies</h2>
+    <p class="section-intro">Real work for real clients — each built on existing tools — delivered under budget — leaving something that lasts.</p>
+    <div class="cases-grid">
+      <div class="case-card">
+        <div class="case-meta">
+          <span class="case-tag">Community · Compliance</span>
+          <h3>Chaos to Compliance</h3>
+        </div>
+        <div class="case-body">
+          <p class="case-challenge">The challenge</p>
+          <p>A leaseholder community took over block management with zero handover. They faced immediate legal compliance deadlines, no administrative infrastructure, and residents under genuine stress. They needed calm and a system, fast.</p>
+          <p class="case-challenge">What happened</p>
+          <p>Using existing Office 365 tools and free resources, and working intensively with the project leader, a full compliance and communication system was built in speed. Legal deadlines were met, crises were averted, resident confidence was restored, and the community had infrastructure they could manage themselves going forward.</p>
+          <div class="case-outcome">
+            <span class="outcome-pill">Legal deadlines met</span>
+            <span class="outcome-pill">Zero additional software cost</span>
+            <span class="outcome-pill">Resident confidence restored</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-meta">
+          <span class="case-tag">Small Organisation · Automation</span>
+          <h3>He Will Make Straight Your Paths</h3>
+        </div>
+        <div class="case-body">
+          <p class="case-challenge">The challenge</p>
+          <p>A busy parish priest was fed up with time consuming mileage and expenses paperwork, a recurring administrative burden taking time each month that could be spent elsewhere.</p>
+          <p class="case-challenge">What happened</p>
+          <p>A custom Google Sheets solution automated the entire process. The solution worked so well it was subsequently developed into <a href = "https://travelexpenses.geekinacape.com/">Travel Expenses+</a>, a published Google Workspace add-on.</p>
+          <div class="case-outcome">
+            <span class="outcome-pill">Hours saved monthly</span>
+            <span class="outcome-pill">Developed into published app</span>
+            <span class="outcome-pill">Built on existing tools</span>
+          </div>
+        </div>
+      </div>
+      <div class="case-card">
+        <div class="case-meta">
+          <span class="case-tag">Education · Data</span>
+          <h3>Digital Rewards, Real-Time Data</h3>
+        </div>
+        <div class="case-body">
+          <p class="case-challenge">The challenge</p>
+          <p>A school's rewards and sanctions system was a paper-based bottleneck; slow, inconsistent, and producing no useful data for staff or leadership.</p>
+          <p class="case-challenge">What happened</p>
+          <p>Using existing Google Workspace, the system was transformed into a real-time digital tool with a Looker Studio dashboard and automated alerts. Staff engagement improved immediately; leadership had data they could actually use.</p>
+          <div class="case-outcome">
+            <span class="outcome-pill">Real-time data for leadership</span>
+            <span class="outcome-pill">Google Workspace only</span>
+            <span class="outcome-pill">Immediate staff adoption</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-inner">
+    <p class="section-label">Client feedback</p>
+    <h2 class="section-title">What clients say</h2>
+    <div class="testimonials-grid">
+        <div class="testimonial">
+        <blockquote>Toby is that all too rare a gem: an ICT geek who speaks in English... [he] has managed to make the jobs I have to do make sense, where others have frankly baffled me.</blockquote>
+        <p class="testimonial-author">Ex-Line Manager</p>
+      </div>
+      <div class="testimonial">
+        <blockquote>His clarity, without ever being patronising or impatient, makes him a truly gifted teacher. There is little he can't do.</blockquote>
+        <p class="testimonial-author">Ex-Senior Colleague</p>
+      </div>
+      <div class="testimonial">
+        <blockquote>He has lifted my morale on many occasions. His consistency and calm manner has been incredibly warming to so many staff.</blockquote>
+        <p class="testimonial-author">Ex-Headmaster</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Get in touch</p>
+    <h2 class="section-title">Let's have a conversation</h2>
+    <p class="section-intro">No obligation, no sales pitch. Just a straightforward chat about whether I can help. If I can't, I'll tell you honestly.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>I'd love to hear from you</h3>
+        <div class="contact-item">
+          <span>✉️</span>
+            <a href="mailto:reachingout@geekinacape.com">reachingout@geekinacape.com</a>
+        </div>
+        <div class="contact-item">
+          <span>📍</span>
+          <span>South of England based </span>
+        </div>
+        <div class="contact-item">
+          <span>💼 </span>
+          <a href="https://www.linkedin.com/in/toby-carson-63144135" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+        </div>
+        <div class="contact-item">
+          <span>⏱️</span>
+          <span>I aim to respond within 24 hours</span>
+        </div>
+        <div style="margin-top: 2rem;">
+          <p style="color: rgba(255,255,255,0.55); font-size:0.88rem; line-height:1.8;">Not sure what you need? <br>That's fine. Tell me what's frustrating you about technology right now and we'll work it out from there.</p>
+        </div>
+      </div>
+      <div class="contact-form-area">
+        <h3>Send a message</h3>
+        <form action="contact.php" method="POST">
+          <div class="form-group">
+            <label>Your name</label>
+            <input type="text" name="name" placeholder="How should I address you?">
+          </div>
+          <div class="form-group">
+            <label>Email address</label>
+            <input type="email" name="email" placeholder="your@email.com">
+          </div>
+          <div class="form-group">
+            <label>What can I help with?</label>
+            <select name="enquiry">
+              <option value="">Select an option...</option>
+              <option>Free introductory chat</option>
+              <option>Clarity session (£75–100)</option>
+              <option>Technology review</option>
+              <option>Monthly retainer enquiry</option>
+              <option>Home use support</option>
+              <option>Something else (please explain below)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Tell me a little more</label>
+            <textarea name="message" placeholder="What's going on with your technology? No need to be technical."></textarea>
+          </div>
+          <button type="submit" class="form-submit">Send message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="assets/Geek in a Cape.png" alt="Geek in a Cape logo" style="height:44px;width:auto;">
+    <span style

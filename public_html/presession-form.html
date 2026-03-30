@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pre-Session Questionnaire | Geek in a Cape</title>
+  <meta name="description" content="Complete your pre-session technology review questionnaire for Geek in a Cape. Fill it in online, open in Google Forms, or download the paper version.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:        #1B3A5C;
+      --navy-dark:   #122840;
+      --navy-light:  #2a5080;
+      --green:       #2E7D32;
+      --green-light: #4CAF50;
+      --green-pale:  #e8f5e9;
+      --cream:       #FAFAF7;
+      --white:       #FFFFFF;
+      --text-dark:   #1a1a2e;
+      --text-mid:    #444455;
+      --text-light:  #777788;
+      --border:      #e0e0ec;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      color: var(--text-dark);
+      background: var(--cream);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-back {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: var(--text-mid);
+      font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--green); }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 120px 2rem 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(46,125,50,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 860px; margin: 0 auto;
+      position: relative; z-index: 1;
+      display: flex; align-items: center; gap: 3rem;
+    }
+    .hero-text { flex: 1; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--green-light);
+      border: 1px solid rgba(76,175,80,0.4); border-radius: 3px;
+      padding: 0.3rem 0.8rem; margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; line-height: 1.2; color: white; margin-bottom: 1rem;
+    }
+    .hero h1 em { color: var(--green-light); font-style: normal; }
+    .hero p {
+      font-size: 1.1rem; color: rgba(255,255,255,0.72);
+      max-width: 580px; line-height: 1.8;
+    }
+    .hero-logo {
+      width: 160px; height: 160px; flex-shrink: 0;
+      opacity: 0.92; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.35));
+    }
+
+    /* ── OPTIONS STRIP ── */
+    .options-strip {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 68px; z-index: 90;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .options-inner {
+      max-width: 860px; margin: 0 auto;
+      display: flex; justify-content: center;
+      padding: 0 2rem;
+    }
+    .option-tab {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 1.1rem 1.75rem;
+      border: none; background: none;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.9rem; font-weight: 600; color: var(--text-light);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      text-decoration: none; white-space: nowrap;
+      flex: 1; max-width: 280px;
+    }
+    .option-tab:hover { color: var(--green); }
+    .option-tab.active { color: var(--green); border-bottom-color: var(--green); }
+    .option-tab svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .tab-label-sub {
+      display: block; font-size: 0.72rem; font-weight: 400;
+      color: var(--text-light); letter-spacing: 0.02em;
+    }
+
+    /* ── MAIN CONTENT ── */
+    main { max-width: 860px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+    /* ── INSTRUCTIONS BOX ── */
+    .instructions {
+      background: white; border: 1px solid var(--border);
+      border-left: 4px solid var(--green); border-radius: 0 8px 8px 0;
+      padding: 1.5rem 1.75rem; margin-bottom: 2.5rem;
+    }
+    .instructions h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; color: var(--navy); margin-bottom: 0.6rem;
+    }
+    .instructions p {
+      font-size: 0.95rem; color: var(--text-mid);
+      line-height: 1.75; margin-bottom: 0.5rem;
+    }
+    .instructions p:last-child { margin-bottom: 0; }
+
+    /* ── PANELS ── */
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* ── EMBED PANEL ── */
+    .embed-wrapper {
+      background: white; border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .embed-header {
+      background: var(--navy); padding: 1rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    }
+    .embed-header span { color: rgba(255,255,255,0.75); font-size: 0.85rem; }
+    .embed-open-link {
+      color: var(--green-light); font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; display: flex; align-items: center; gap: 5px;
+      white-space: nowrap; transition: opacity 0.2s;
+    }
+    .embed-open-link:hover { opacity: 0.8; }
+    .embed-open-link svg { width: 14px; height: 14px; }
+    .form-iframe-container { width: 100%; }
+    .form-iframe-container iframe {
+      width: 100%; border: none; display: block; min-height: 2200px;
+    }
+
+    /* ── FULL FORM PANEL ── */
+    .fullform-panel {
+      text-align: center; padding: 3rem 2rem;
+      background: white; border: 1px solid var(--border); border-radius: 10px;
+    }
+    .fullform-icon {
+      width: 64px; height: 64px; background: var(--green-pale);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+    }
+    .fullform-icon svg { width: 30px; height: 30px; color: var(--green); }
+    .fullform-panel h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; color: var(--navy); margin-bottom: 0.75rem;
+    }
+    .fullform-panel p {
+      color: var(--text-mid); font-size: 0.95rem; line-height: 1.75;
+      max-width: 480px; margin: 0 auto 2rem;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--green); color: white;
+      padding: 0.9rem 2.25rem; border-radius: 5px;
+      text-decoration: none; font-weight: 700; font-size: 1rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); }
+    .btn-primary svg { width: 18px; height: 18px; }
+
+    /* ── DOWNLOAD PANEL ── */
+    .download-panel {
+      background: white; border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+    }
+    .download-preview {
+      background: var(--navy); padding: 2.5rem 2rem;
+      display: flex; align-items: center; gap: 2rem;
+    }
+    .download-preview-text h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: white; margin-bottom: 0.5rem;
+    }
+    .download-preview-text p { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.7; }
+    .download-doc-icon {
+      flex-shrink: 0; width: 56px; height: 64px;
+      background: rgba(255,255,255,0.12); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .download-doc-icon svg { width: 28px; height: 28px; color: rgba(255,255,255,0.8); }
+    .download-body { padding: 2rem; }
+    .download-body p {
+      color: var(--text-mid); font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.5rem;
+    }
+    .download-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-download {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--green); color: white;
+      padding: 0.85rem 2rem; border-radius: 5px;
+      text-decoration: none; font-weight: 700; font-size: 0.95rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-download:hover { background: var(--green-light); transform: translateY(-2px); }
+    .btn-download svg { width: 18px; height: 18px; }
+    .btn-open-doc {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--navy); padding: 0.85rem 1.5rem; border-radius: 5px;
+      border: 1px solid var(--border); text-decoration: none;
+      font-weight: 600; font-size: 0.95rem;
+      transition: border-color 0.2s, color 0.2s; background: white;
+    }
+    .btn-open-doc:hover { border-color: var(--navy); color: var(--navy-dark); }
+    .btn-open-doc svg { width: 16px; height: 16px; }
+    .download-note {
+      margin-top: 1.25rem; font-size: 0.82rem;
+      color: var(--text-light); font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-dark); padding: 1.5rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    footer p { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-logo img { height: 32px; opacity: 0.7; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero { padding: 108px 1.25rem 48px; }
+      .hero-inner { flex-direction: column; gap: 1.5rem; }
+      .hero-logo { width: 100px; height: 100px; }
+      main { padding: 2rem 1.25rem 4rem; }
+      .download-preview { flex-direction: column; gap: 1rem; }
+      .options-strip {
+        position: static;
+        background: var(--navy);
+        border-bottom: none;
+        box-shadow: none;
+      }
+      .options-inner {
+        flex-direction: column;
+        padding: 0.75rem 1.25rem;
+        gap: 0.5rem;
+      }
+      .option-tab {
+        max-width: 100%;
+        border-bottom: none; border-radius: 6px;
+        padding: 0.85rem 1.25rem;
+        background: rgba(255,255,255,0.08);
+        color: rgba(255,255,255,0.7);
+        justify-content: flex-start;
+        border: 1px solid rgba(255,255,255,0.12);
+        white-space: normal;
+      }
+      .option-tab:hover { background: rgba(255,255,255,0.14); color: white; }
+      .option-tab.active {
+        background: var(--green); border-color: var(--green);
+        color: white; border-bottom: none;
+      }
+      .tab-label-sub { color: inherit; opacity: 0.7; display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://geekinacape.com" class="nav-logo">
+      <img src="https://geekinacape.com/assets/Geek in a Cape.png" alt="Geek in a Cape">
+    </a>
+    <a href="https://geekinacape.com" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      Back to main site
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Technology Review</div>
+        <h1>Pre-Session <em>Questionnaire</em></h1>
+        <p>Before we meet, a few questions help me arrive already thinking about your specific situation. In attempting to touch on everything, there are 9 sections to the form, but each is short. Complete it in whichever way is best for you.</p>
+      </div>
+      <img src="https://geekinacape.com/assets/Geek in a Cape.png" alt="Geek in a Cape" class="hero-logo">
+    </div>
+  </section>
+
+  <!-- OPTIONS STRIP -->
+  <div class="options-strip">
+    <div class="options-inner">
+      <button class="option-tab active" onclick="showPanel('embed', this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+        </svg>
+        <span>
+          Complete here
+          <span class="tab-label-sub">Fill in on this page</span>
+        </span>
+      </button>
+      <button class="option-tab" onclick="showPanel('fullform', this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+        <span>
+          Open full form
+          <span class="tab-label-sub">Full page version</span>
+        </span>
+      </button>
+      <button class="option-tab" onclick="showPanel('download', this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        <span>
+          Paper version
+          <span class="tab-label-sub">Fill in manually</span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- INSTRUCTIONS -->
+    <div class="instructions">
+      <h2>How to complete the form</h2>
+      <p>The Pre-session questionnaire is available below. <br>If you would prefer to open it full screen (for example if working on a smaller screen) click "Full page version" above. <br>If you prefer to fill in by hand or using a word processor, choose "Fill in manually" above. <br>If filling in manually, please return it to <a href="mailto:reachingout@geekinacape.com" style="color:var(--green);text-decoration:none;font-weight:600;">reachingout@geekinacape.com</a> — if printing out, you can scan or photograph it clearly before emailing.</p>
+      <p>There are no right or wrong answers. If you don't know something, 'not sure' is a perfectly good response, and actually quite helpful.</p>
+    </div>
+
+    <!-- PANEL: EMBED -->
+    <div id="panel-embed" class="panel active">
+      <div class="embed-wrapper">
+        <div class="embed-header">
+          <span>Technology Review — Pre-Session Questionnaire &nbsp;·&nbsp; Geek in a Cape</span>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6CkIoKyRobW9AOIZcfiULklPT_ccaQeF-Q7hw8FUsHef-HA/viewform" target="_blank" rel="noopener" class="embed-open-link">
+            Open in new tab
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+            </svg>
+          </a>
+        </div>
+        <div class="form-iframe-container">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSe6CkIoKyRobW9AOIZcfiULklPT_ccaQeF-Q7hw8FUsHef-HA/viewform?embedded=true"
+            frameborder="0" marginheight="0" marginwidth="0"
+            title="Pre-Session Questionnaire">Loading…</iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANEL: FULL FORM -->
+    <div id="panel-fullform" class="panel">
+      <div class="fullform-panel">
+        <div class="fullform-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </div>
+        <h2>Open the full form</h2>
+        <p>The full Google Form opens in a new browser tab or window. This gives you a larger, unframed experience and works well on any device — particularly on mobile.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSe6CkIoKyRobW9AOIZcfiULklPT_ccaQeF-Q7hw8FUsHef-HA/viewform" target="_blank" rel="noopener" class="btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+          Open questionnaire in new tab
+        </a>
+      </div>
+    </div>
+
+    <!-- PANEL: DOWNLOAD -->
+    <div id="panel-download" class="panel">
+      <div class="download-panel">
+        <div class="download-preview">
+          <div class="download-doc-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <div class="download-preview-text">
+            <h2>Manual version</h2>
+            <p>A formatted document to fill in using MS Word / Google Docs, or print it out to write your answers by hand, and return it as a scan. Useful if you'd like to think through your answers away from a screen, or share it with colleagues first.</p>
+          </div>
+        </div>
+        <div class="download-body">
+          <p>The document is formatted for A4 printing with generous space for handwritten answers in each section. Once completed, scan or photograph clearly and email it to <a href="mailto:reachingout@geekinacape.com" style="color:var(--green);font-weight:600;text-decoration:none;">reachingout@geekinacape.com</a>.</p>
+          <div class="download-actions">
+            <a href="https://docs.google.com/document/d/1GCce5XJgeYl4ZaacusfQUx8gTcqoNJZC/export?format=docx" class="btn-download">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download for Word
+            </a>
+            <a href="https://docs.google.com/document/d/1GCce5XJgeYl4ZaacusfQUx8gTcqoNJZC/export?format=pdf" class="btn-download" style="background:var(--navy);">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download for printing
+            </a>
+            <a href="https://docs.google.com/document/d/1GCce5XJgeYl4ZaacusfQUx8gTcqoNJZC/edit" target="_blank" rel="noopener" class="btn-open-doc">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+              </svg>
+              Open in Google Docs
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="https://geekinacape.com/assets/Geek in a Cape.png" alt="Geek in a Cape">
+    </div>
+    <p>© 2026 Toby Carson · <a href="https://geekinacape.com" style="color:rgba(255,255,255,0.45);text-decoration:none;">geekinacape.com</a></p>
+  </footer>
+
+  <script>
+    function showPanel(id, btn) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.option-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('panel-' + id).classList.add('active');
+      btn.classList.add('active');
+      const strip = document.querySelector('.options-strip');
+      const top = strip.getBoundingClientRect().bottom + window.scrollY + 20;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  </script>
+
+</body>
+</html>

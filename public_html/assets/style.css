@@ -1,0 +1,207 @@
+/* ============================================================
+   GEEK IN A CAPE — Shared Stylesheet
+   geekinacape.com
+   
+   Covers: CSS variables, reset, body, nav, hero (sub-page
+   pattern), footer, and shared utilities.
+   
+   Page-specific styles remain inline in each HTML file.
+   ============================================================ */
+
+/* ── GOOGLE FONTS (loaded here, not per-page) ──────────────── */
+/* Loaded via <link> in each HTML <head> — not duplicated here  */
+
+/* ── VARIABLES ─────────────────────────────────────────────── */
+:root {
+  --navy:        #1B3A5C;
+  --navy-dark:   #122840;
+  --navy-light:  #2a5080;
+  --green:       #2E7D32;
+  --green-light: #4CAF50;
+  --green-pale:  #e8f5e9;
+  --cream:       #FAFAF7;
+  --white:       #FFFFFF;
+  --text-dark:   #1a1a2e;
+  --text-mid:    #444455;
+  --text-light:  #777788;
+  --border:      #e0e0ec;
+}
+
+/* ── RESET ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ── BODY ───────────────────────────────────────────────────── */
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 400;
+  color: var(--text-dark);
+  background: var(--cream);
+  line-height: 1.7;
+}
+
+/* ── NAV ────────────────────────────────────────────────────── */
+/* Shared base — index.html adds .nav-links; sub-pages add .nav-back */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo img { height: 44px; width: auto; }
+
+/* Sub-page back link (terms, presession) */
+.nav-back {
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none; color: var(--text-mid);
+  font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.nav-back:hover { color: var(--green); }
+.nav-back svg { width: 16px; height: 16px; }
+
+/* Main site nav links (index.html only) */
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--text-mid);
+  font-size: 0.9rem; font-weight: 500; letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--green); }
+.nav-cta {
+  background: var(--green); color: white !important;
+  padding: 0.5rem 1.2rem; border-radius: 4px;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--green-light) !important; color: white !important; }
+
+/* ── SUB-PAGE HERO ──────────────────────────────────────────── */
+/* Scoped to .subpage-hero to avoid conflicting with index.html's */
+/* #home hero which uses .hero-inner as a grid                    */
+.subpage-hero {
+  background: var(--navy);
+  padding: 120px 2rem 60px;
+  position: relative; overflow: hidden;
+}
+.subpage-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(46,125,50,0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+.subpage-hero .hero-inner {
+  max-width: 860px; margin: 0 auto;
+  position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 3rem;
+}
+.subpage-hero .hero-text { flex: 1; }
+.subpage-hero .hero-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--green-light);
+  border: 1px solid rgba(76,175,80,0.4); border-radius: 3px;
+  padding: 0.3rem 0.8rem; margin-bottom: 1.25rem;
+}
+.subpage-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700; line-height: 1.2; color: white; margin-bottom: 1rem;
+}
+.subpage-hero h1 em { color: var(--green-light); font-style: normal; }
+.subpage-hero p {
+  font-size: 1.1rem; color: rgba(255,255,255,0.72);
+  max-width: 580px; line-height: 1.8;
+}
+.hero-logo {
+  width: 160px; height: 160px; flex-shrink: 0;
+  opacity: 0.92; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.35));
+}
+
+/* ── SHARED CONTENT COMPONENTS ──────────────────────────────── */
+
+/* Note / instructions box (left green border) */
+.note-box,
+.instructions {
+  background: white; border: 1px solid var(--border);
+  border-left: 4px solid var(--green); border-radius: 0 8px 8px 0;
+  padding: 1.5rem 1.75rem; margin-bottom: 2.5rem;
+}
+.note-box h2,
+.instructions h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; color: var(--navy); margin-bottom: 0.6rem;
+}
+.note-box p,
+.instructions p {
+  font-size: 0.95rem; color: var(--text-mid);
+  line-height: 1.75; margin-bottom: 0.5rem;
+}
+.note-box p:last-child,
+.instructions p:last-child { margin-bottom: 0; }
+.note-box a,
+.instructions a { color: var(--green); font-weight: 600; text-decoration: none; }
+.note-box a:hover,
+.instructions a:hover { text-decoration: underline; }
+
+/* Embed wrapper (iframe containers for Google Docs/Forms) */
+.embed-wrapper {
+  background: white; border: 1px solid var(--border);
+  border-radius: 10px; overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.embed-header {
+  background: var(--navy); padding: 1rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  flex-wrap: wrap;
+}
+.embed-header span {
+  color: rgba(255,255,255,0.75); font-size: 0.85rem;
+}
+.embed-open-link {
+  color: var(--green-light); font-size: 0.85rem; font-weight: 600;
+  text-decoration: none; display: flex; align-items: center; gap: 5px;
+  white-space: nowrap; transition: opacity 0.2s;
+}
+.embed-open-link:hover { opacity: 0.8; }
+.embed-open-link svg { width: 14px; height: 14px; }
+
+/* Primary button */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--green); color: white;
+  padding: 0.85rem 2rem; border-radius: 4px;
+  text-decoration: none; font-weight: 600; font-size: 0.95rem;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--green-light); transform: translateY(-1px); }
+.btn-primary svg { width: 18px; height: 18px; }
+
+/* ── FOOTER ─────────────────────────────────────────────────── */
+footer {
+  background: var(--navy-dark); padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+footer p { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+footer a:hover { color: rgba(255,255,255,0.8); }
+.footer-logo { display: flex; align-items: center; gap: 10px; }
+.footer-logo img { height: 32px; opacity: 0.7; }
+
+/* ── RESPONSIVE (shared) ────────────────────────────────────── */
+@media (max-width: 640px) {
+  /* Sub-page hero */
+  .subpage-hero { padding: 108px 1.25rem 48px; }
+  .subpage-hero .hero-inner { flex-direction: column; gap: 1.5rem; }
+  .hero-logo { width: 100px; height: 100px; }
+}
+@media (max-width: 900px) {
+  /* Main site nav */
+  .nav-links { display: none; }
+}

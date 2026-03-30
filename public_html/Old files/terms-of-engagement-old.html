@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Engagement | Geek in a Cape</title>
+  <meta name="description" content="Terms of Engagement for Geek in a Cape — how we work together, clearly and fairly explained.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:        #1B3A5C;
+      --navy-dark:   #122840;
+      --navy-light:  #2a5080;
+      --green:       #2E7D32;
+      --green-light: #4CAF50;
+      --green-pale:  #e8f5e9;
+      --cream:       #FAFAF7;
+      --white:       #FFFFFF;
+      --text-dark:   #1a1a2e;
+      --text-mid:    #444455;
+      --text-light:  #777788;
+      --border:      #e0e0ec;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 400;
+      color: var(--text-dark);
+      background: var(--cream);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-back {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none; color: var(--text-mid);
+      font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--green); }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 120px 2rem 60px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(46,125,50,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 860px; margin: 0 auto;
+      position: relative; z-index: 1;
+      display: flex; align-items: center; gap: 3rem;
+    }
+    .hero-text { flex: 1; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--green-light);
+      border: 1px solid rgba(76,175,80,0.4); border-radius: 3px;
+      padding: 0.3rem 0.8rem; margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700; line-height: 1.2; color: white; margin-bottom: 1rem;
+    }
+    .hero h1 em { color: var(--green-light); font-style: normal; }
+    .hero p {
+      font-size: 1.1rem; color: rgba(255,255,255,0.72);
+      max-width: 580px; line-height: 1.8;
+    }
+    .hero-logo {
+      width: 160px; height: 160px; flex-shrink: 0;
+      opacity: 0.92; filter: drop-shadow(0 8px 24px rgba(0,0,0,0.35));
+    }
+
+    /* ── MAIN ── */
+    main { max-width: 860px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+    /* ── NOTE BOX ── */
+    .note-box {
+      background: white; border: 1px solid var(--border);
+      border-left: 4px solid var(--green); border-radius: 0 8px 8px 0;
+      padding: 1.5rem 1.75rem; margin-bottom: 2.5rem;
+    }
+    .note-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; color: var(--navy); margin-bottom: 0.6rem;
+    }
+    .note-box p {
+      font-size: 0.95rem; color: var(--text-mid);
+      line-height: 1.75; margin-bottom: 0.5rem;
+    }
+    .note-box p:last-child { margin-bottom: 0; }
+    .note-box a { color: var(--green); font-weight: 600; text-decoration: none; }
+    .note-box a:hover { text-decoration: underline; }
+
+    /* ── EMBED WRAPPER ── */
+    .embed-wrapper {
+      background: white; border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .embed-header {
+      background: var(--navy); padding: 1rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .embed-header span {
+      color: rgba(255,255,255,0.75); font-size: 0.85rem;
+    }
+    .embed-open-link {
+      color: var(--green-light); font-size: 0.85rem; font-weight: 600;
+      text-decoration: none; display: flex; align-items: center; gap: 5px;
+      white-space: nowrap; transition: opacity 0.2s;
+    }
+    .embed-open-link:hover { opacity: 0.8; }
+    .embed-open-link svg { width: 14px; height: 14px; }
+
+    .doc-iframe-container iframe {
+      width: 100%; border: none; display: block;
+      height: 85vh; min-height: 640px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy-dark); padding: 1.5rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    footer p { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+    footer a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    footer a:hover { color: rgba(255,255,255,0.8); }
+    .footer-logo img { height: 32px; opacity: 0.7; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero { padding: 108px 1.25rem 48px; }
+      .hero-inner { flex-direction: column; gap: 1.5rem; }
+      .hero-logo { width: 100px; height: 100px; }
+      main { padding: 2rem 1.25rem 4rem; }
+      .doc-iframe-container iframe { height: 75vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="https://geekinacape.com" class="nav-logo">
+      <img src="https://geekinacape.com/assets/Geek%20in%20a%20Cape.png" alt="Geek in a Cape">
+    </a>
+    <a href="https://geekinacape.com" class="nav-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"/>
+      </svg>
+      Back to main site
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Working together</div>
+        <h1>Terms of <em>Engagement</em></h1>
+        <p>These terms set out how we work together — written in plain English, intended to be fair to both of us, and designed to be the beginning of a good working relationship rather than a substitute for one.</p>
+      </div>
+      <img src="https://geekinacape.com/assets/Geek%20in%20a%20Cape.png" alt="Geek in a Cape" class="hero-logo">
+    </div>
+  </section>
+
+  <!-- MAIN -->
+  <main>
+
+    <div class="note-box">
+      <h2>A note on these terms</h2>
+      <p>If something here doesn't fit your situation, or if anything is unclear, please just ask — I'd rather have a conversation than leave anything unspoken. These terms may be updated over time; the version in force will always be the one shared with you directly.</p>
+      <p>To save a copy, use the <strong>Open in Google Docs</strong> link above the document — from there you can download as PDF or Word.</p>
+    </div>
+
+    <div class="embed-wrapper">
+      <div class="embed-header">
+        <span>Terms of Engagement &nbsp;·&nbsp; Geek in a Cape &nbsp;·&nbsp; Version 1.0 &nbsp;·&nbsp; March 2026</span>
+        <a href="https://docs.google.com/document/d/e/2PACX-1vRGYof4Pb8vrG5JJVTbaxBa6eLvKiQ3Kd112m-l865sgiTnX4kijR5k9UyOlzlO0g/pub"
+           target="_blank" rel="noopener" class="embed-open-link">
+          Open in Google Docs
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+      <div class="doc-iframe-container">
+        <iframe
+          src="https://docs.google.com/document/d/e/2PACX-1vRGYof4Pb8vrG5JJVTbaxBa6eLvKiQ3Kd112m-l865sgiTnX4kijR5k9UyOlzlO0g/pub?embedded=true"
+          title="Geek in a Cape — Terms of Engagement"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="https://geekinacape.com/assets/Geek%20in%20a%20Cape.png" alt="Geek in a Cape">
+    </div>
+    <p>© 2026 Toby Carson &nbsp;·&nbsp; <a href="https://geekinacape.com">geekinacape.com</a></p>
+  </footer>
+
+</body>
+</html>
