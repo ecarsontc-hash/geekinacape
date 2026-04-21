@@ -327,6 +327,54 @@
   .testimonial blockquote::before { content: "\201C"; font-size: 2.5rem; color: var(--green); line-height: 0; vertical-align: -0.5rem; margin-right: 0.2rem; }
   .testimonial-author { font-size: 0.85rem; font-weight: 600; color: var(--text-light); }
 
+  /* ── GOOGLE REVIEWS ── */
+.google-reviews-bar {
+  margin-top: 2.5rem;
+  padding: 2rem 1.5rem;
+  background-color: var(--green-pale);
+  border-top: 3px solid var(--green);
+  border-radius: 8px;
+  text-align: center;
+}
+.google-reviews-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+.google-stars {
+  font-size: 1.75rem;
+  color: var(--green);
+  letter-spacing: 0.1em;
+  line-height: 1;
+}
+.google-reviews-text {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0;
+}
+.google-reviews-btn {
+  display: inline-block;
+  padding: 0.65rem 1.5rem;
+  background-color: var(--navy);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background-color 0.2s ease;
+}
+.google-reviews-btn:hover,
+.google-reviews-btn:focus {
+  background-color: var(--green);
+  outline: 2px solid var(--navy);
+  outline-offset: 2px;
+}
+
   /* ── ABOUT ── */
   #about { background: var(--cream); }
   .about-grid {
