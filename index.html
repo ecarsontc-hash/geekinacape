@@ -327,52 +327,60 @@
   .testimonial blockquote::before { content: "\201C"; font-size: 2.5rem; color: var(--green); line-height: 0; vertical-align: -0.5rem; margin-right: 0.2rem; }
   .testimonial-author { font-size: 0.85rem; font-weight: 600; color: var(--text-light); }
 
-  /* ── GOOGLE REVIEWS ── */
+/* ── GOOGLE REVIEWS ── */
 .google-reviews-bar {
-  margin-top: 2.5rem;
-  padding: 2rem 1.5rem;
-  background-color: var(--green-pale);
-  border-top: 3px solid var(--green);
+  padding: 2rem;
+  background: var(--cream);
   border-radius: 8px;
-  text-align: center;
-}
-.google-reviews-inner {
+  border-left: 3px solid var(--green);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  max-width: 520px;
-  margin: 0 auto;
+  justify-content: space-between;
+  gap: 1.25rem;
 }
 .google-stars {
-  font-size: 1.75rem;
+  font-size: 1.4rem;
   color: var(--green);
   letter-spacing: 0.1em;
   line-height: 1;
 }
 .google-reviews-text {
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
   color: var(--navy);
-  margin: 0;
+  line-height: 1.7;
+  font-style: italic;
+  flex-grow: 1;
+}
+.google-reviews-text::before {
+  content: "\201C";
+  font-size: 2.5rem;
+  color: var(--green);
+  line-height: 0;
+  vertical-align: -0.5rem;
+  margin-right: 0.2rem;
+}
+.google-reviews-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
 }
 .google-reviews-btn {
-  display: inline-block;
-  padding: 0.65rem 1.5rem;
-  background-color: var(--navy);
-  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
-  border-radius: 4px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  transition: background-color 0.2s ease;
+  color: var(--text-light);
+  transition: color 0.2s;
 }
-.google-reviews-btn:hover,
-.google-reviews-btn:focus {
-  background-color: var(--green);
-  outline: 2px solid var(--navy);
-  outline-offset: 2px;
+.google-reviews-btn:hover { color: var(--green); }
+.google-logo {
+  width: 48px;
+  height: auto;
+  display: block;
 }
 
   /* ── ABOUT ── */
@@ -826,19 +834,25 @@
       </div>
 </div>
 
-    <div class="google-reviews-bar">
-      <div class="google-reviews-inner">
-        <div class="google-stars" aria-label="Five stars">★★★★★</div>
-        <p class="google-reviews-text">All 5-star reviews!</p>
-        <a href="https://www.google.com/maps/place/Geek+in+a+Cape/@50.9829123,-5.2711809,8z/data=!3m1!4b1!4m6!3m5!1s0xbd64791d6266c9d:0x28ffc4bc00afb344!8m2!3d50.988608!4d-3.9522875!16s%2Fg%2F11y0cl88v0?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
-          target="_blank" rel="noopener noreferrer" class="google-reviews-btn"
-          aria-label="Read Geek in a Cape reviews on Google (opens in new tab)">
-          Read our reviews on Google
-        </a>
-      </div>
-    </div>
-
+<div class="google-reviews-bar">
+  <div class="google-stars" aria-label="Five stars">★★★★★</div>
+  <p class="google-reviews-text">All 5-star reviews!</p>
+  <div class="google-reviews-footer">
+    <a href="https://www.google.com/maps/place/Geek+in+a+Cape/@50.9829123,-5.2711809,8z/data=!3m1!4b1!4m6!3m5!1s0xbd64791d6266c9d:0x28ffc4bc00afb344!8m2!3d50.988608!4d-3.9522875!16s%2Fg%2F11y0cl88v0?entry=ttu&g_ep=EgoyMDI2MDQxNS4wIKXMDSoASAFQAw%3D%3D"
+       target="_blank" rel="noopener noreferrer" class="google-reviews-btn"
+       aria-label="Read Geek in a Cape reviews on Google (opens in new tab)">
+      <svg class="google-logo" viewBox="0 0 272 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M115.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18C71.25 34.32 81.24 25 93.5 25s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44S80.99 39.2 80.99 47.18c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" fill="#EA4335"/>
+        <path d="M163.75 47.18c0 12.77-9.99 22.18-22.25 22.18s-22.25-9.41-22.25-22.18c0-12.85 9.99-22.18 22.25-22.18s22.25 9.32 22.25 22.18zm-9.74 0c0-7.98-5.79-13.44-12.51-13.44s-12.51 5.46-12.51 13.44c0 7.9 5.79 13.44 12.51 13.44s12.51-5.55 12.51-13.44z" fill="#FBBC05"/>
+        <path d="M209.75 26.34v39.82c0 16.38-9.66 23.07-21.08 23.07-10.75 0-17.22-7.19-19.66-13.07l8.48-3.53c1.51 3.61 5.21 7.87 11.17 7.87 7.31 0 11.84-4.51 11.84-13v-3.19h-.34c-2.18 2.69-6.38 5.04-11.68 5.04-11.09 0-21.25-9.66-21.25-22.09 0-12.52 10.16-22.26 21.25-22.26 5.29 0 9.49 2.35 11.68 4.96h.34v-3.61h9.25zm-8.56 20.92c0-7.81-5.21-13.52-11.84-13.52-6.72 0-12.35 5.71-12.35 13.52 0 7.73 5.63 13.36 12.35 13.36 6.63 0 11.84-5.63 11.84-13.36z" fill="#4285F4"/>
+        <path d="M225 3v65h-9.5V3h9.5z" fill="#34A853"/>
+        <path d="M262.02 54.48l7.56 5.04c-2.44 3.61-8.32 9.83-18.48 9.83-12.6 0-22.01-9.74-22.01-22.18 0-13.19 9.49-22.18 20.92-22.18 11.51 0 17.14 9.16 18.98 14.11l1.01 2.52-29.65 12.28c2.27 4.45 5.8 6.72 10.75 6.72 4.96 0 8.4-2.44 10.92-6.14zm-23.27-7.98l19.82-8.23c-1.09-2.77-4.37-4.7-8.23-4.7-4.95 0-11.84 4.37-11.59 12.93z" fill="#EA4335"/>
+        <path d="M35.29 41.41V32h31.91c.31 1.64.47 3.58.47 5.68 0 7.06-1.93 15.79-8.15 22.01-6.05 6.3-13.78 9.66-24.02 9.66C16.32 69.35.36 53.89.36 34.77.36 15.65 16.32.19 35.5.19c10.5 0 17.98 4.12 23.6 9.49l-6.64 6.64c-4.03-3.78-9.49-6.72-16.97-6.72-13.86 0-24.7 11.17-24.7 25.03 0 13.86 10.84 25.03 24.7 25.03 8.99 0 14.11-3.61 17.39-6.89 2.66-2.66 4.41-6.46 5.1-11.65l-22.49.09z" fill="#4285F4"/>
+      </svg>
+      Read our reviews
+    </a>
   </div>
+</div>
 </section>
 
 <!-- CONTACT -->
