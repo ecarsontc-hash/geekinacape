@@ -1,1 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Successful - Geek in a Cape</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background: linear-gradient(135deg, #005500 0%, #008001 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 85, 0, 0.15);
+            max-width: 600px;
+            width: 100%;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="100" cy="100" r="95" fill="none" stroke="%23008001" stroke-width="8"/><g fill="%23008001"><circle cx="100" cy="50" r="15"/><path d="M75 75 Q75 95 85 110 L115 110 Q125 95 125 75 Z"/><path d="M65 110 L70 140 M135 110 L130 140 M85 110 L85 140 M115 110 L115 140"/><circle cx="100" cy="125" r="8" fill="white"/></g></svg>') center/contain no-repeat;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #005500;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #008001;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .message {
+            font-size: 16px;
+            color: #575757;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .key-box {
+            background: #f5f5f5;
+            border: 2px dashed #008001;
+            border-radius: 8px;
+            padding: 30px 20px;
+            margin: 30px 0;
+        }
+
+        .key-label {
+            font-size: 13px;
+            color: #575757;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .license-key {
+            font-family: 'Courier New', monospace;
+            font-size: 22px;
+            color: #005500;
+            letter-spacing: 2px;
+            word-break: break-all;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .key-not-found {
+            font-size: 15px;
+            color: #d32f2f;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .copy-button {
+            background: #008001;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .copy-button:hover {
+            background: #005500;
+        }
+
+        .copy-button:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
+        .copy-feedback {
+            font-size: 13px;
+            color: #008001;
+            margin-top: 10px;
+            display: none;
+            font-weight: 600;
+        }
+
+        .instructions {
+            background: #f9f9f9;
+            border-left: 4px solid #008001;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+            border-radius: 4px;
+        }
+
+        .instructions h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: #005500;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .instructions ol {
+            margin-left: 20px;
+        }
+
+        .instructions li {
+            font-size: 14px;
+            color: #575757;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .help-link {
+            color: #008001;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .help-link:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            font-size: 13px;
+            color: #999;
+        }
+
+        .footer a {
+            color: #008001;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .license-key {
+                font-size: 18px;
+            }
+
+            .instructions {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo"></div>
+        
+        <h1>Purchase Successful!</h1>
+        <div class="subtitle">Travel Expenses+</div>
+        
+        <p class="message">
+            Thank you for your purchase. Your license key is shown below. Please copy it and follow the activation instructions.
+        </p>
+
+        <div class="key-box">
+            <div class="key-label">Your License Key:</div>
+            <div id="keyDisplay" class="license-key">
+                <span id="licenseKey">License key not found</span>
+            </div>
+            <div id="keyNotFound" class="key-not-found" style="display: none;">
+                If you don't see your key above, please check your email — it may have been sent there.
+            </div>
+            <button class="copy-button" id="copyButton" onclick="copyToClipboard()">Copy to Clipboard</button>
+            <div class="copy-feedback" id="copyFeedback">✓ Copied to clipboard</div>
+        </div>
+
+        <div class="instructions">
+            <h2>How to Activate Your License:</h2>
+            <ol>
+                <li>Close this tab or navigate back to your expenses spreadsheet</li>
+                <li>In the Manage License sidebar, paste your license key into the "Enter license key to activate" field</li>
+                <li>Click "Activate License"</li>
+                <li>Your Travel Expenses+ features will be available immediately</li>
+            </ol>
+        </div>
+
+        <div class="footer">
+            <p>If you have any issues, please visit our <a href="https://geekinacape.com" class="help-link">help center</a> or contact us directly.</p>
+            <p style="margin-top: 10px;">© 2026 Geek in a Cape · Travel Expenses+</p>
+        </div>
+    </div>
+
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        function displayLicenseKey() {
+            const key = getQueryParam('key');
+            const keyDisplay = document.getElementById('licenseKey');
+            const keyNotFound = document.getElementById('keyNotFound');
+            const copyButton = document.getElementById('copyButton');
+
+            if (key) {
+                keyDisplay.textContent = key;
+                keyNotFound.style.display = 'none';
+                copyButton.disabled = false;
+            } else {
+                keyDisplay.textContent = 'License key not found';
+                keyNotFound.style.display = 'block';
+                copyButton.disabled = true;
+            }
+        }
+
+        function copyToClipboard() {
+            const key = getQueryParam('key');
+            if (!key) return;
+
+            navigator.clipboard.writeText(key).then(() => {
+                const feedback = document.getElementById('copyFeedback');
+                feedback.style.display = 'block';
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+
+        // Display the key when page loads
+        document.addEventListener('DOMContentLoaded', displayLicenseKey);
+    </script>
+</body>
+</html>
