@@ -618,27 +618,28 @@
 </section>
 
 <!-- WHAT I DO -->
-<section id="what-i-do" style="background: white; border-top: 1px solid #e4e1db;">
+<section id="what-i-do" style="background: white; border-top: 1px solid #e4e1db; overflow: hidden;">
   <div class="section-inner">
     <div class="about-grid">
  
-      <!-- LEFT: text, matching About section -->
+      <!-- LEFT: text -->
       <div class="about-text">
         <p class="section-label">What I do</p>
         <h2 class="section-title">Trusted tech advice, strategy, and support</h2>
-        <p>Most small organisations face the same problem: too many technology decisions, no one to ask. I provide retained advisory support — an ongoing relationship, not a one-off fix.<br>That might mean:</p>
+        <p>Most small organisations face the same problem: too many technology decisions, no one to ask. I provide retained advisory support — an ongoing relationship, not a one-off fix.</p>
+        <p>That might mean:</p>
         <ul style="list-style:none;padding:0;margin:0.5rem 0 1rem;">
           <li style="font-size:1rem;color:var(--text-mid);line-height:1.9;padding:0.1em 0;display:flex;align-items:center;gap:0.6em;"><span style="width:8px;height:8px;border-radius:50%;background:#4CAF50;flex-shrink:0;display:inline-block;"></span>Workflow efficiencies</li>
           <li style="font-size:1rem;color:var(--text-mid);line-height:1.9;padding:0.1em 0;display:flex;align-items:center;gap:0.6em;"><span style="width:8px;height:8px;border-radius:50%;background:#4CAF50;flex-shrink:0;display:inline-block;"></span>Support and mentoring</li>
           <li style="font-size:1rem;color:var(--text-mid);line-height:1.9;padding:0.1em 0;display:flex;align-items:center;gap:0.6em;"><span style="width:8px;height:8px;border-radius:50%;background:#4CAF50;flex-shrink:0;display:inline-block;"></span>Training and digital literacy</li>
           <li style="font-size:1rem;color:var(--text-mid);line-height:1.9;padding:0.1em 0;display:flex;align-items:center;gap:0.6em;"><span style="width:8px;height:8px;border-radius:50%;background:#4CAF50;flex-shrink:0;display:inline-block;"></span>AI and 'future-proofing'</li>
         </ul>
-        <p>An affordable monthly retainer who already knows your organisation before you even pick up the phone.</p>
+        <p>From £200 a month, you get a named advisor who already knows your organisation — before you even pick up the phone.</p>
       </div>
  
       <!-- RIGHT: carousel -->
-      <div style="display:flex;align-items:center;justify-content:center;">
-        <div style="width:100%;max-width:480px;position:relative;">
+      <div class="giac-carousel-col">
+        <div class="giac-swiper-wrap">
           <div class="swiper giac-swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide"><img src="assets/ads/1.png" alt="Technology sorted. Quietly, reliably, without jargon." style="width:100%;display:block;border-radius:6px;box-shadow:0 8px 32px rgba(0,0,0,0.12);" /></div>
@@ -660,11 +661,32 @@
 </section>
  
 <style>
+  .giac-carousel-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+  }
+  .giac-swiper-wrap {
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    padding: 0 40px;
+  }
   .giac-pagination .swiper-pagination-bullet { background: #c8c4be; opacity: 1; }
   .giac-pagination .swiper-pagination-bullet-active { background: #4CAF50; }
   .giac-prev, .giac-next { color: #4CAF50; }
   .giac-prev::after, .giac-next::after { font-size: 20px; font-weight: 700; }
   .giac-swiper { padding-bottom: 44px !important; }
+ 
+  /* Section label colour fix inside about-text */
+  .about-text .section-label { color: var(--green); }
+ 
+  /* Mobile */
+  @media (max-width: 900px) {
+    .giac-swiper-wrap { padding: 0; max-width: 100%; }
+    .giac-prev, .giac-next { display: none !important; }
+  }
 </style>
 
 <!-- ABOUT -->
