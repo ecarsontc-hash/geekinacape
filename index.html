@@ -17,6 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="assets/Geek in a Cape.png">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.css"/>
 <style>
   :root {
     --navy: #1B3A5C;
@@ -607,45 +608,141 @@
 </section>
 
 <!-- WHAT I DO -->
-<section id="services">
-  <div class="section-inner">
-    <p class="section-label">What I do</p>
-    <h2 class="section-title">Technology advice you can actually trust</h2>
-    <p class="section-intro">Most small organisations don't need an IT department. They need one person they can call, someone <b>calm, honest, and technically competent</b> before they make an expensive decision.</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">🧭</div>
-        <h3>Technology Advisory</h3>
-        <p>Honest, impartial guidance on technology decisions. Before you sign a contract, buy a system, or change a process, talk to me first. I have nothing to sell you except myself.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🤖</div>
-        <h3>AI Guidance &amp; Policy</h3>
-        <p>Should your organisation be using AI? Which tools? Is it safe? I help you answer these questions practically and honestly, drawing on Oxford Said Business School AI programme frameworks.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">⚙️</div>
-        <h3>Workflow &amp; Systems</h3>
-        <p>Building clever, bespoke solutions using the tools you already own. Turning administrative chaos into clean, functional systems, without expensive software.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🤝</div>
-        <h3>1:1 Support &amp; Mentoring</h3>
-        <p>Patient, one-to-one guidance for individuals navigating digital overwhelm. Technology explained clearly, at your pace, without patronising.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🔍</div>
-        <h3>Technology Review</h3>
-        <p>A full audit of your organisation's technology setup. What you have, what you're paying for, what's working, and what to do next <b>in plain English</b>.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">📋</div>
-        <h3>Training &amp; Digital Literacy</h3>
-        <p>Staff sessions and workshops helping teams get more from the technology they already use. Practical, accessible, and tailored to your context.</p>
-      </div>
-    </div>
+<section id="what-i-do" style="
+  background: #faf9f6;
+  padding: 80px 0 60px;
+  border-top: 1px solid #e4e1db;
+">
+ 
+  <!-- Section heading -->
+  <div style="
+    max-width: 860px;
+    margin: 0 auto 40px;
+    padding: 0 32px;
+    text-align: center;
+  ">
+    <h2 style="
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #008001;
+      margin-bottom: 16px;
+    ">What I do</h2>
+    <p style="
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      font-style: italic;
+      color: #111111;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto;
+    ">I'm a retained technology advisor for small businesses,
+    charities, and community organisations in Dorset and
+    Wiltshire — the trusted person in your corner for every
+    technology decision you face.</p>
   </div>
+ 
+  <!-- Swiper carousel -->
+  <div style="
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+  ">
+    <div class="swiper giac-swiper">
+      <div class="swiper-wrapper">
+ 
+        <div class="swiper-slide">
+          <img
+            src="assets/ads/ad-01.png"
+            alt="Technology sorted. Quietly, reliably, without jargon."
+            style="width:100%;display:block;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.10);"
+          />
+        </div>
+ 
+        <div class="swiper-slide">
+          <img
+            src="assets/ads/ad-02.png"
+            alt="Good technology advice is four things"
+            style="width:100%;display:block;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.10);"
+          />
+        </div>
+ 
+        <div class="swiper-slide">
+          <img
+            src="assets/ads/ad-03.png"
+            alt="The tech advisor who knows your business"
+            style="width:100%;display:block;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.10);"
+          />
+        </div>
+ 
+        <div class="swiper-slide">
+          <img
+            src="assets/ads/ad-04.png"
+            alt="I keep my client list small. That's the point."
+            style="width:100%;display:block;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.10);"
+          />
+        </div>
+ 
+        <div class="swiper-slide">
+          <img
+            src="assets/ads/ad-05.png"
+            alt="What if you had a geek you could just ask?"
+            style="width:100%;display:block;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.10);"
+          />
+        </div>
+ 
+        <div class="swiper-slide">
+          <img
+            src="assets/ads/ad-06.png"
+            alt="Too small for a tech department? Too big to do it alone?"
+            style="width:100%;display:block;border-radius:4px;box-shadow:0 4px 24px rgba(0,0,0,0.10);"
+          />
+        </div>
+ 
+      </div><!-- /swiper-wrapper -->
+ 
+      <!-- Navigation arrows -->
+      <div class="swiper-button-prev giac-prev"></div>
+      <div class="swiper-button-next giac-next"></div>
+ 
+      <!-- Pagination dots -->
+      <div class="swiper-pagination giac-pagination"></div>
+ 
+    </div><!-- /swiper -->
+  </div>
+ 
 </section>
+ 
+<style>
+  /* Dot colours */
+  .giac-pagination .swiper-pagination-bullet {
+    background: #c8c4be;
+    opacity: 1;
+  }
+  .giac-pagination .swiper-pagination-bullet-active {
+    background: #008001;
+  }
+ 
+  /* Arrow colours */
+  .giac-prev,
+  .giac-next {
+    color: #008001;
+  }
+  .giac-prev::after,
+  .giac-next::after {
+    font-size: 20px;
+    font-weight: 700;
+  }
+ 
+  /* Extra breathing room below dots */
+  .giac-swiper {
+    padding-bottom: 44px !important;
+  }
+</style>
 
 <!-- ABOUT -->
 <section id="about">
@@ -973,9 +1070,39 @@
     </div>
   </div>
 </section>
-
+      
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
     <img src="assets/Geek in a Cape.png" alt="Geek in a Cape logo" style="height:44px;width:auto;">
-    <span style
+    <span style="font-family: 'Playfair Display', serif; font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.55);">Geek in a Cape · 'Spired Solutions</span>
+  </div>
+  <p>© 2026 Toby Carson · <a href="terms-of-engagement.html" style="color:rgba(255,255,255,0.45);text-decoration:none;">Terms of Engagement</a></p>
+</footer>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+<script>
+  new Swiper('.giac-swiper', {
+    loop: true,
+    speed: 500,
+    grabCursor: true,
+    keyboard: { enabled: true },
+ 
+    // Auto-advance every 5 seconds — remove these
+    // three lines if you'd prefer manual only
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: true,
+    },
+ 
+    pagination: {
+      el: '.giac-pagination',
+      clickable: true,
+    },
+    navigation: {
+      prevEl: '.giac-prev',
+      nextEl: '.giac-next',
+    },
+  });
+</script>
+</body>
+</html>
