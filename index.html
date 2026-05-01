@@ -37,7 +37,17 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   html { scroll-behavior: smooth; }
+/* Fix section-label colour inside about-text */
+.about-text .section-label {
+  color: var(--green);
+}
 
+/* What I do background — white to alternate with cream About */
+#what-i-do {
+  background: white !important;
+  border-top: 1px solid #e4e1db;
+}
+  
   body {
     font-family: 'Source Sans 3', sans-serif;
     font-weight: 400;
@@ -608,7 +618,7 @@
 </section>
 
 <!-- WHAT I DO -->
-<section id="what-i-do" style="background: #faf9f6; border-top: 1px solid #e4e1db;">
+<section id="what-i-do" style="background: white; border-top: 1px solid #e4e1db;">
   <div class="section-inner">
     <div class="about-grid">
  
