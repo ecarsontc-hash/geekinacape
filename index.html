@@ -405,6 +405,12 @@
   transition: transform 0.2s;
 }
 
+/* Keeps the Google SVG logo perfectly scaled alongside the text */
+.google-reviews-btn .google-logo {
+  height: 18px;
+  width: auto;
+}
+
 /* Rest state: Forces the logo vector text and review text to match your brand green */
 .google-reviews-btn .google-logo path,
 .google-reviews-btn span {
@@ -413,11 +419,11 @@
   transition: fill 0.2s, color 0.2s;
 }
 
-/* Hover state: Swiftly shifts the entire element to a bright interactive blue */
+/* Hover state: Shifts to your standard brand navy */
 .google-reviews-btn:hover .google-logo path,
 .google-reviews-btn:hover span {
-  fill: #3b82f6 !important;
-  color: #3b82f6 !important;
+  fill: var(--navy) !important;
+  color: var(--navy) !important;
 }
 
 /* Subtle nudge effect to prove it's interactive on hover */
