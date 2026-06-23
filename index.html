@@ -291,22 +291,36 @@
   #how .section-title { color: var(--navy); }
   #how .section-intro { color: var(--text-mid); }
   #how .section-label { color: var(--green); }
-  .steps-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
-    margin-top: 3rem; position: relative;
-  }
-  .step {
-    position: relative; padding: 2rem;
-    background: white; border: 1px solid var(--border);
-    border-radius: 10px;
-  }
-  .step-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem; font-weight: 700; color: rgba(46,125,50,0.2);
-    line-height: 1; margin-bottom: 1rem;
-  }
-  .step h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: 0.6rem; font-weight: 600; }
-  .step p { color: var(--text-mid); font-size: 0.9rem; line-height: 1.7; }
+.steps-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+  margin-top: 3rem; position: relative;
+}
+.step {
+  position: relative; padding: 2rem;
+  background: white; border: 2px solid var(--navy);
+  border-radius: 10px;
+}
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 50%; right: -1.6rem;
+  transform: translateY(-50%);
+  width: 0; height: 0;
+  border-top: 14px solid transparent;
+  border-bottom: 14px solid transparent;
+  border-left: 16px solid var(--navy);
+  z-index: 1;
+}
+.step-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 700; color: rgba(46,125,50,0.2);
+  line-height: 1; margin-bottom: 1rem;
+}
+.step h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: 0.6rem; font-weight: 600; }
+.step p { color: var(--text-mid); font-size: 0.9rem; line-height: 1.7; }
+@media (max-width: 900px) {
+  .step:not(:last-child)::after { display: none; }
+}
 
   /* ── CASE STUDIES ── */
   #work { background: var(--cream); }
@@ -810,7 +824,7 @@
       <div class="step">
         <div class="step-number">02</div>
         <h3>A clarity session or technology audit</h3>
-        <p>For most clients the natural next step is a focused 90-minute session, either exploring a specific problem or taking a broader look at how your technology is working overall. You'll come away with a clear written summary and practical recommendations that you can develop yourself or we can work on further together.</p>
+        <p>For most clients the natural next step is a focused 90-minute session — either exploring a specific problem or taking a broader look at how your technology is working overall. You'll come away with a clear written summary and practical recommendations that you can develop yourself or we can work on further together.</p>
         <p style="margin-top:1rem; font-size:0.88rem; font-weight:600; color:var(--navy);">£100 &middot; written summary included &middot; no commitment</p>
         <p style="font-size:0.85rem; color:var(--text-light); margin-top:0.35rem;"><em>Refunded in full if you move to a six-month retained arrangement.</em></p>
       </div>
@@ -819,7 +833,7 @@
         <div class="step-number">03</div>
         <h3>Ongoing support</h3>
         <p>Some clients come with a specific project or issue to resolve.</p>
-        <p style="margin-top:0.75rem;">However, many find that having someone they trust on call — who knows their context and is committed to their flourishing — is a relationship worth investing in. Those clients tend to move to a retained relationship: a fixed monthly amount offering ongoing service, support and access to honest advice whenever they need it, from someone who already knows them and their situation.</p>
+        <p style="margin-top:0.75rem;">However, many find that having someone they trust on call — who knows their context and is committed to their flourishing — is a relationship worth investing in. Those clients tend to move to a retained relationship: a fixed monthly amount offering access to honest advice whenever they need it, from someone who already knows them and their situation.</p>
       </div>
  
     </div>
