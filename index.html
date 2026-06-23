@@ -376,7 +376,7 @@
 .google-reviews-text {
   font-family: 'Playfair Display', serif;
   font-size: 1.05rem;
-  color: var(--green);
+  color: var(--navy);
   line-height: 1.7;
   font-style: italic;
   flex-grow: 1;
@@ -384,7 +384,7 @@
 .google-reviews-text::before {
   content: "\201C";
   font-size: 2.5rem;
-  color: var(--navy);
+  color: var(--green);
   line-height: 0;
   vertical-align: -0.5rem;
   margin-right: 0.2rem;
@@ -402,10 +402,16 @@
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 600;
+  background-color: var(--green);
   color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
   transition: color 0.2s;
 }
-.google-reviews-btn:hover { color: white; }
+.google-reviews-btn:hover
+  background-color: #2B6CB0;
+  color: white;
+}
 .google-logo {
   width: 48px;
   height: auto;
