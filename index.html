@@ -396,39 +396,32 @@
   gap: 1rem;
 }
 .google-reviews-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   font-weight: 600;
-  transition: transform 0.2s;
+  color: white;
+  background: var(--green);
+  padding: 0.6rem 1.1rem;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.15s;
 }
 
-/* Keeps the Google SVG logo perfectly scaled alongside the text */
-.google-reviews-btn .google-logo {
-  height: 18px;
-  width: auto;
-}
-
-/* Rest state: Forces the logo vector text and review text to match your brand green */
-.google-reviews-btn .google-logo path,
-.google-reviews-btn span {
-  fill: var(--green) !important;
-  color: var(--green) !important;
-  transition: fill 0.2s, color 0.2s;
-}
-
-/* Hover state: Shifts to your standard brand navy */
-.google-reviews-btn:hover .google-logo path,
-.google-reviews-btn:hover span {
-  fill: var(--navy) !important;
-  color: var(--navy) !important;
-}
-
-/* Subtle nudge effect to prove it's interactive on hover */
 .google-reviews-btn:hover {
+  background: var(--navy);
   transform: translateY(-1px);
+}
+
+.google-reviews-btn .google-logo {
+  height: 16px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.google-reviews-btn .google-logo path {
+  transition: none;
 }
 
   /* ── ABOUT ── */
