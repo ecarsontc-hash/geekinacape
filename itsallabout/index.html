@@ -135,15 +135,24 @@
   .topics-grid {
     display: flex; flex-direction: column; gap: 1.25rem;
   }
-  .topic-card {
+.topic-card {
     padding: 1.75rem 2rem; border: 1px solid var(--border); border-radius: 8px;
     transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     position: relative;
   }
-  .topic-card.bookable { cursor: pointer; }
+  .topic-card.bookable {
+    cursor: pointer;
+    border: 2px solid var(--navy);
+    padding: calc(1.75rem - 1px) calc(2rem - 1px);
+    box-shadow: 0 4px 20px rgba(27,58,92,0.08);
+  }
   .topic-card:hover {
     border-color: var(--green); box-shadow: 0 8px 30px rgba(46,125,50,0.1);
     transform: translateY(-2px);
+  }
+  .topic-card.bookable:hover {
+    border-color: var(--navy-light);
+    box-shadow: 0 10px 30px rgba(27,58,92,0.15);
   }
   .topic-head {
     display: flex; justify-content: space-between; align-items: center;
