@@ -91,13 +91,39 @@
   }
   .nav-cta:hover { background: var(--green-light) !important; color: white !important; }
 
+  /* ── SERIES TICKER ── */
+  .series-ticker {
+    position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+    height: 38px; overflow: hidden;
+    background: var(--green);
+    text-decoration: none;
+    display: flex; align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  .series-ticker-track {
+    display: flex; align-items: center; gap: 3rem;
+    white-space: nowrap;
+    padding-left: 3rem;
+    animation: ticker-scroll 22s linear infinite;
+  }
+  .series-ticker:hover .series-ticker-track { animation-play-state: paused; }
+  .series-ticker-item { color: white; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.02em; }
+  .series-ticker-item strong { font-weight: 700; }
+  @keyframes ticker-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .series-ticker-track { animation: none; }
+  }
+
   /* ── HERO ── */
   #home {
     min-height: 100vh;
     background: var(--navy);
     display: flex; align-items: center;
     position: relative; overflow: hidden;
-    padding-top: 68px;
+    padding-top: 106px;
   }
   .hero-bg {
     position: absolute; inset: 0;
@@ -616,6 +642,20 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
     <li><a href="#contact" class="nav-cta">Reach out for a free chat</a></li>
   </ul>
 </nav>
+
+<!-- IT'S ALL ABOUT SERIES TICKER -->
+<a class="series-ticker" href="itsallabout/index.html" aria-label="IT's all about... upcoming workshop series, see what's coming up">
+  <div class="series-ticker-track">
+    <span class="series-ticker-item"><strong>COMING SOON:</strong> IT's all about...</span>
+    <span class="series-ticker-item">Simple face-to-face tech workshops on relevant topics</span>
+    <span class="series-ticker-item">First topic: AI</span>
+    <span class="series-ticker-item">Register your interest here &rarr;</span>
+    <span class="series-ticker-item"><strong>COMING SOON:</strong> IT's all about...</span>
+    <span class="series-ticker-item">Simple face-to-face tech workshops on relevant topics</span>
+    <span class="series-ticker-item">First topic: AI</span>
+    <span class="series-ticker-item">Register your interest here &rarr;</span>
+  </div>
+</a>
 
 <!-- HERO -->
 <section id="home">
