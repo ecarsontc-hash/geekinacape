@@ -226,6 +226,16 @@
     font-size: 0.82rem; color: var(--text-mid);
   }
   #register label.check input { width: auto; margin-top: 3px; }
+  #register .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+  .form-status {
+    margin-top: 0.25rem; padding: 0.85rem 1rem; border-radius: 5px;
+    font-size: 0.9rem; line-height: 1.6; display: none;
+  }
+  .form-status.visible { display: block; }
+  .form-status.success { background: var(--green-pale); border: 1px solid rgba(46,125,50,0.3); color: var(--green); }
+  .form-status.error { background: #efeeee; border: 1px solid var(--border); color: var(--text-mid); }
+  .form-status a { color: var(--green); font-weight: 600; text-decoration: none; }
+  .form-status a:hover { text-decoration: underline; }
 
   /* ── TRUST / TESTIMONIAL (modelled on .testimonial) ── */
   #trust { background: white; }
@@ -361,22 +371,24 @@
   <div class="section-inner">
     <p class="section-label">Register interest</p>
     <h2 class="section-title">Save your spot</h2>
-    <form>
-      <input type="text" placeholder="Name" required>
-      <input type="text" placeholder="Email or phone" required>
-      <select>
+    <form id="register-form" action="https://formspree.io/f/mzdylweg" method="POST">
+      <input type="hidden" name="_subject" value="IT's all about... registration">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="text" name="contact" placeholder="Email or phone" required>
+      <select name="topic">
         <option value="">Which topic are you interested in?</option>
         <option>AI</option>
         <option>Staying safe online</option>
         <option>Smartphones</option>
         <option>Something else</option>
       </select>
-      <textarea rows="3" placeholder="Anything you'd like a future session to cover?"></textarea>
+      <textarea name="message" rows="3" placeholder="Anything you'd like a future session to cover?"></textarea>
       <label class="check">
         <input type="checkbox" required>
         I'm happy to be contacted about this series. Your details won't be used for anything else.
       </label>
-      <button type="submit" class="btn-primary block">Register interest</button>
+      <button type="submit" class="btn-primary block form-submit">Register interest</button>
+      <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
@@ -411,6 +423,38 @@
     <a class="btn-primary" href="#register" onclick="document.getElementById('ai-modal').classList.remove('open')">Register interest</a>
   </div>
 </div>
+
+<script>
+  var registerForm = document.getElementById('register-form');
+  var formStatus = document.getElementById('form-status');
+  registerForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var submitBtn = registerForm.querySelector('.form-submit');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    formStatus.className = 'form-status';
+
+    fetch(registerForm.action, {
+      method: 'POST',
+      body: new FormData(registerForm),
+      headers: { 'Accept': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        formStatus.textContent = "Thanks — you're on the list. We'll let you know as soon as a date is confirmed.";
+        formStatus.className = 'form-status visible success';
+        registerForm.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+    }).catch(function () {
+      formStatus.innerHTML = "Something went wrong sending that. Please email <a href=\"mailto:reachingout@geekinacape.com\">reachingout@geekinacape.com</a> directly instead.";
+      formStatus.className = 'form-status visible error';
+    }).finally(function () {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Register interest';
+    });
+  });
+</script>
 
 </body>
 </html>
