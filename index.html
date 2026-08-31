@@ -208,7 +208,7 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
     margin-bottom: 1.25rem;
   }
   .section-intro {
-    font-size: 1.1rem; color: var(--text-mid); max-width: 640px; line-height: 1.8;
+    font-size: 1.1rem; color: var(--text-mid); max-width: 820px; line-height: 1.8;
     margin-bottom: 3rem;
   }
 
@@ -261,8 +261,10 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
   }
   .tier-name {
     font-family: 'Playfair Display', serif; font-size: 1.3rem;
-    color: var(--navy); font-weight: 600; margin-bottom: 0.5rem;
+    color: var(--navy); font-weight: 600; margin-bottom: 0.35rem;
   }
+  .tier-hours { font-size: 0.78rem; color: var(--green); font-weight: 600; letter-spacing: 0.03em; margin-bottom: 0.9rem; }
+  .tier-note { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
   .tier-price {
     font-size: 2rem; font-weight: 700; color: var(--green); line-height: 1;
     margin-bottom: 0.25rem;
@@ -285,6 +287,10 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
   .tier-cta:hover { background: var(--navy-light); }
   .tier-card.featured .tier-cta { background: var(--green); }
   .tier-card.featured .tier-cta:hover { background: var(--green-light); }
+  .tiers-context { margin-top: 1.5rem; padding: 1.5rem 2rem; background: var(--green-pale); border-radius: 8px; border-left: 4px solid var(--green); }
+  .tiers-context p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; }
+  .tiers-domestic-note { text-align: center; margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-light); }
+  .tiers-domestic-note a { color: var(--green); font-weight: 600; text-decoration: none; }
 
   .clarity-banner {
     margin-top: 2rem; background: var(--navy); border-radius: 10px;
@@ -311,20 +317,25 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
   .who-icon { font-size: 2rem; margin-bottom: 0.75rem; }
   .who-card h3 { font-size: 0.95rem; font-weight: 600; color: var(--navy); margin-bottom: 0.5rem; }
   .who-card p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
+  .who-single { max-width: 640px; margin: 0 auto; padding: 2.25rem 2.5rem; border: 1px solid var(--border); border-radius: 8px; text-align: left; }
+  .who-single .who-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .who-single h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--navy); font-weight: 600; margin-bottom: 0.85rem; }
+  .who-single p { font-size: 0.98rem; color: var(--text-mid); line-height: 1.75; }
+  .who-single .who-link { display: inline-block; margin-top: 1rem; font-size: 0.88rem; color: var(--green); font-weight: 600; text-decoration: none; }
+  .who-domestic-note { margin-top: 2rem; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center; padding: 1.25rem 1.5rem; border-top: 1px solid var(--border); }
+  .who-domestic-note p { font-size: 0.9rem; color: var(--text-mid); }
 
   /* ── HOW IT WORKS ── */
-  #how { background: var(--cream); }
+  #how { background: var(--cream); padding: 3.5rem 2rem; }
   #how .section-title { color: var(--navy); }
-  #how .section-intro { color: var(--text-mid); }
+  #how .section-intro { color: var(--text-mid); margin-bottom: 1.5rem; }
   #how .section-label { color: var(--green); }
 .steps-grid {
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
-  margin-top: 3rem; position: relative;
+  margin-top: 1.75rem; position: relative;
 }
 .step {
-  position: relative; padding: 2rem;
-  background: white; border: 2px solid var(--navy);
-  border-radius: 10px;
+  position: relative; padding: 0.25rem 0;
 }
 .step:not(:last-child)::after {
   content: '';
@@ -339,17 +350,17 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
 }
 .step-number {
   font-family: 'Playfair Display', serif;
-  font-size: 3rem; font-weight: 700; color: rgba(46,125,50,0.2);
-  line-height: 1; margin-bottom: 1rem;
+  font-size: 2.1rem; font-weight: 700; color: rgba(46,125,50,0.3);
+  line-height: 1; margin-bottom: 0.5rem;
 }
-.step h3 { color: var(--navy); font-size: 1.1rem; margin-bottom: 0.6rem; font-weight: 600; }
-.step p { color: var(--text-mid); font-size: 0.9rem; line-height: 1.7; }
+.step h3 { color: var(--navy); font-size: 1.05rem; margin-bottom: 0.4rem; font-weight: 600; }
+.step p { color: var(--text-mid); font-size: 0.88rem; line-height: 1.65; }
 @media (max-width: 900px) {
   .step:not(:last-child)::after { display: none; }
 }
 
   /* ── CASE STUDIES ── */
-  #work { background: white; }
+  #work { background: var(--cream); }
   .cases-grid { display: grid; gap: 1.5rem; margin-top: 3rem; }
   .case-card {
     background: white; border: 1px solid var(--border); border-radius: 10px;
@@ -380,7 +391,7 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
   }
 
   /* ── TESTIMONIALS ── */
-  #testimonials { background: var(--cream); }
+  #testimonials { background: white; }
   .testimonials-grid {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
     margin-top: 3rem;
@@ -633,10 +644,11 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
     <img src="assets/Geek in a Cape.png" alt="Geek in a Cape logo" style="height:44px;width:auto;">
     </a>
   <ul class="nav-links">
-    <li><a href="#services">What I do</a></li>
+    <li><a href="#what-i-do">What I do</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#who">Who I help</a></li>
     <li><a href="#how">How it works</a></li>
+    <li><a href="#tiers">Working with me</a></li>
     <li><a href="#work">Examples</a></li>
     <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#contact" class="nav-cta">Reach out for a free chat</a></li>
@@ -665,8 +677,7 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
     <div class="hero-text">
       <span class="hero-eyebrow">Trusted Technology Advisor</span>
       <h1 class="hero-title">Your tech superhero<br><em>with the human touch</em></h1>
-      <p class="hero-sub">I help small businesses, charities, and individuals across Dorset, Wiltshire and the South West make better technology decisions, <b>calmly, clearly, and jargon free</b>. 
-        <br>Honest advice from someone who gets it, without the hard sell.</p>
+      <p class="hero-sub">I love helping people make better technology decisions, <b>calmly, clearly, and jargon-free</b>. My particular focus is <strong style="color:var(--green-light);">small businesses and charities</strong> across Dorset, Wiltshire and the South West. Honest advice from someone who gets it, without the hard sell.</p>
       <div class="hero-actions">
         <a href="#contact" class="btn-primary">Reach out for a free chat</a>
         <a href="#how" class="btn-secondary">See how it works</a>
@@ -716,9 +727,7 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
       <div class="about-text">
         <p class="section-label">What I do</p>
         <h2 class="section-title">Trusted advice, strategy, support</h2>
-        <p>Small organisations tend to face the same problem, too many technology decisions with no one to ask. 
-          <br>For home users, IT repair is not hard to find. Honest, impartial advice and support can be.
-          <br><em><b>I offer that advice and support... an ongoing relationship, not merely a one-off fix.</em></b></p>
+        <p>Small organisations tend to face the same problem, too many technology decisions with no one to ask. For home users, IT repair is not hard to find. Honest, impartial advice and support can be. <em><b>I offer that advice and support... an ongoing relationship, not merely a one-off fix.</b></em></p>
         <ul style="list-style:none;padding:0;margin:0.5rem 0 1rem;">
           <li style="font-size:1rem;color:var(--text-mid);line-height:1.9;padding:0.1em 0;display:flex;align-items:center;gap:0.6em;"><span style="width:8px;height:8px;border-radius:50%;background:#4CAF50;flex-shrink:0;display:inline-block;"></span>Streamlining messy workflows</li>
           <li style="font-size:1rem;color:var(--text-mid);line-height:1.9;padding:0.1em 0;display:flex;align-items:center;gap:0.6em;"><span style="width:8px;height:8px;border-radius:50%;background:#4CAF50;flex-shrink:0;display:inline-block;"></span>Patient IT Support and mentoring</li>
@@ -814,32 +823,16 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
   <div class="section-inner">
     <p class="section-label">Who I help</p>
     <h2 class="section-title">Who I work with</h2>
-    <p class="section-intro">I love working with people who either want more from their tech or want to manage it better but who either don't know where to start or get quickly overwhelmed. 
-      <br>People who want friendly advice they can trust from someone who isn't a salesperson.</p>
-    <div class="who-grid">
- 
-      <div class="who-card">
-        <div class="who-icon">💼</div>
-        <h3>Small Businesses &amp; Sole Traders</h3>
-        <p>Too small for a tech department, too busy to figure it out alone. 
-          <br>You need someone impartial, affordable, and already focused on your business.</p>
-      </div>
- 
-      <div class="who-card">
-        <div class="who-icon">🤝</div>
-        <h3>Charities &amp; Community Organisations</h3>
-        <p>Real needs, limited budgets, no IT support. 
-          <br>Maybe you're a small charity, parish, community interest company, residents' association — you need your tech to work to its full potential.</p>
-        <p style="font-size:0.82rem;margin-top:0.75rem;color:var(--green);"><a href="#contact" style="color:var(--green);text-decoration:none;font-weight:600;">Get in touch to discuss not-for-profit rates →</a></p>
-      </div>
- 
-      <div class="who-card">
-        <div class="who-icon">🏠</div>
-        <h3>Individuals &amp; Home Users</h3>
-        <p>Anyone who just needs patient, honest help with technology. 
-          <br>Confused by your tech, need help with a new project, need to better manage your setup for you/your family?</p>
-      </div>
- 
+    <p class="section-intro">I love working with people who either want more from their tech or want to manage it better but who either don't know where to start or get quickly overwhelmed. People who want friendly advice they can trust from someone who isn't a salesperson.</p>
+    <div class="who-single">
+      <div class="who-icon">💼</div>
+      <h3>Small Businesses &amp; Charities</h3>
+      <p>Too small for a tech department, too stretched to sort it out alone, whether that's a business, a charity, a parish, or a residents' association. Real needs, limited budgets or limited time, and no one whose job it is to look after the tech. You need someone impartial, affordable, and already invested in how you're doing.</p>
+      <a href="#contact" class="who-link">Charity or community group? Ask about not-for-profit rates →</a>
+    </div>
+
+    <div class="who-domestic-note">
+      <p>🏠 <strong style="color:var(--navy);">Just need a hand at home?</strong> I help individuals and families too. Confused by a new gadget, want your setup properly sorted, or just want someone patient to ask. <a href="#contact" style="color:var(--green);text-decoration:none;font-weight:600;">Get in touch and we'll find what fits →</a></p>
     </div>
   </div>
 </section>
@@ -862,31 +855,61 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
       <div class="step">
         <div class="step-number">02</div>
         <h3>A clarity session or technology audit</h3>
-        <p>For most clients the natural next step is a focused 90-minute session; either exploring a specific problem or taking a broader look at how your technology is working overall. You'll come away with a clear written summary and practical recommendations that you can develop yourself or that we can work on further together.</p>
-        <p style="margin-top:1rem; font-size:0.88rem; font-weight:600; color:var(--navy);">£100 &middot; written summary included &middot; no commitment</p>
-        <p style="font-size:0.85rem; color:var(--text-light); margin-top:0.35rem;"><em>Refunded in full if you move to a six-month retained arrangement.</em></p>
+        <p>For most clients the natural next step is a focused 90-minute session, exploring a specific problem or taking a broader look at your tech. You'll come away with a clear written summary and practical recommendations.</p>
+        <p style="margin-top:1rem; font-size:0.88rem; font-weight:600; color:var(--navy);">c. £100 &middot; refunded if you move to a six-month retained arrangement</p>
       </div>
  
       <div class="step">
         <div class="step-number">03</div>
-        <h3>Ongoing support</h3>
-        <p>Some clients come with a specific project or issue to resolve. We'll work on that until they are happy.</p>
-        <p style="margin-top:0.75rem;">Many people, however, find that having someone they trust on call; someone who knows their context and is committed to their flourishing, is a relationship worth investing in. Those clients tend to move to a retained relationship: flexible access to ongoing support, service and advice whenever they need it for a fixed monthly amount - their own private IT dept!</p>
+        <h3>Ongoing: one-off or retained</h3>
+        <p>Some clients come with a specific issue or project. We love those.</p>
+        <p style="margin-top:0.75rem;">Others prefer a <a href="#tiers" style="color:var(--green); font-weight:700; text-decoration:none;">retained relationship</a>. Ideal as we grow together, getting to know their setup ever better over time.</p>
       </div>
- 
+
     </div>
- 
-    <div style="margin-top:1.5rem; padding:1.5rem 2rem; background:var(--green-pale); border-radius:8px; border-left:4px solid var(--green); display:flex; align-items:center; gap:2rem; flex-wrap:wrap;">
-      <div style="font-family:'Playfair Display',serif; font-size:3rem; font-weight:700; color:rgba(46,125,50,0.2); line-height:1; flex-shrink:0;">04</div>
-      <div>
-        <p style="font-size:0.8rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--green); margin-bottom:0.4rem;">Retained support</p>
-        <p style="font-size:1rem; font-weight:600; color:var(--navy); margin-bottom:0.4rem;">3 Tiers - Friend &middot; Neighbour &middot; Family</p>
-        <p style="font-size:0.88rem; color:var(--text-mid); line-height:1.7; max-width:580px;">Whilst context dependent, these tiers usually sit somewhere between <strong>£200 and £500 a month</strong> depending on the required contact time and involvement. Specific details are always worked out in conversation.</p>
+  </div>
+</section>
+
+<!-- WORKING WITH ME -->
+<section id="tiers" style="background: white; border-top: 1px solid #e4e1db;">
+  <div class="section-inner">
+    <p class="section-label">Working with me</p>
+    <h2 class="section-title">Retained support, in three shapes</h2>
+    <p class="section-intro">Most clients start with a conversation or a clarity session, then move to a retainer once it's clear the relationship is worth having. There isn't a price list. There's a chat about what you actually need.</p>
+
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <div class="tier-name">Friend</div>
+        <p class="tier-hours">~2 hrs / month</p>
+        <p class="tier-desc"><i>You're generally confident, but it helps to have someone to run thoughts and concerns past.</i></p>
+        <p class="tier-note">Occasional contact. A steady presence, not a helpdesk.</p>
+      </div>
+
+      <div class="tier-card featured">
+        <div class="tier-badge">Most common</div>
+        <div class="tier-name">Neighbour</div>
+        <p class="tier-hours">~4 hrs / month</p>
+        <p class="tier-desc"><i>You value someone who understands your day-to-day and is genuinely engaged in how you're doing.</i></p>
+        <p class="tier-note">Regular contact. Quicker turnaround, a proper check-in now and then.</p>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-name">Family</div>
+        <p class="tier-hours">~7 hrs / month</p>
+        <p class="tier-desc"><i>You want someone who knows your world well, and is properly invested in it going well.</i></p>
+        <p class="tier-note">Closer, more frequent involvement. For when tech decisions really matter.</p>
       </div>
     </div>
+
+    <div class="tiers-context">
+      <p>Typically <strong>£200&ndash;£500 a month</strong>, worked out together rather than picked off a list.</p>
+    </div>
+
     <div style="text-align:center; margin-top:2rem;">
-      <a href="#contact" class="btn-primary">Reach out for a free chat</a>
+      <a href="#contact" class="btn-primary">Talk to me about what fits</a>
     </div>
+
+    <p class="tiers-domestic-note">🏠 These are shaped with businesses and charities in mind, but the same flexible approach works for households too. <a href="#contact">If that's you, get in touch →</a></p>
   </div>
 </section>
 
@@ -1028,7 +1051,7 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
           <span>I aim to respond within 24 hours</span>
         </div>
         <div style="margin-top: 2rem;">
-          <p style="color: rgba(255,255,255,0.55); font-size:0.88rem; line-height:1.8;">Not sure what you need? <br>That's fine. Tell me what's frustrating you about technology right now and we'll work it out from there.</p>
+          <p style="color: rgba(255,255,255,0.55); font-size:0.88rem; line-height:1.8;">Not sure what you need? That's fine. Tell me what's frustrating you about technology right now and we'll work it out from there.</p>
         </div>
       </div>
       <div class="contact-form-area">
