@@ -1057,6 +1057,8 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
       <div class="contact-form-area">
         <h3>Send a message</h3>
         <form action="https://formspree.io/f/mzdylweg" method="POST">
+          <input type="hidden" name="source" id="source" value="">
+          <input type="hidden" name="_subject" id="subject" value="New enquiry from geekinacape.com">
           <div class="form-group">
             <label>Your name</label>
             <input type="text" name="name" placeholder="How should I address you?">
@@ -1119,6 +1121,15 @@ border-top: 1px solid rgba(255,255,255,0.1); align-items: center;
       nextEl: '.giac-next',
     },
   });
+</script>
+      <script>
+(function () {
+  var ref = (new URLSearchParams(window.location.search).get('ref') || '')
+    .replace(/[^a-z0-9-]/gi, '').slice(0, 40);
+  if (!ref) return;
+  document.getElementById('source').value = ref;
+  document.getElementById('subject').value = 'Website enquiry (' + ref + ')';
+})();
 </script>
 </body>
 </html>
